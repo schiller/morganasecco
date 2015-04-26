@@ -1,0 +1,24 @@
+<template name="appLayout">
+  <div>
+
+    <div>
+      <h3><a href="/">Morgana Secco</a></h3>
+      <nav>
+        <ul>
+          {{#each menuItems}}
+          <li class="active"><a href="{{link}}">{{text}}</a></li>
+          {{/each}}
+        </ul>
+      </nav>
+    </div>
+
+    <div>
+      {{> yield}}          
+    </div>
+
+    <div>
+      <p>By <a href="https://twitter.com/luizschiller">@luizschiller</a>.</p>
+    </div>
+
+  </div>
+</template>
