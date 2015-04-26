@@ -2,22 +2,15 @@
   <div>
 
     <div>
-      <h3><a href="/">Morgana Secco</a></h3>
-      <nav>
-        <ul>
-          {{#each menuItems}}
-          <li class="active"><a href="{{link}}">{{text}}</a></li>
-          {{/each}}
-        </ul>
-      </nav>
+      {{> appHeader}}
     </div>
 
-    <div>
+    <div id="appBody" class="container">
       {{> yield}}          
     </div>
 
     <div>
-      <p>By <a href="https://twitter.com/luizschiller">@luizschiller</a>.</p>
+      {{> appFooter}}
     </div>
 
   </div>

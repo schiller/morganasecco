@@ -1,4 +1,4 @@
-<!-- <template name="photos">
+<template name="photos">
 	<div id="mygallery">
 		{{#each photos}}		
 			{{> thumbnail}}		
@@ -7,13 +7,5 @@
 </template>
 
 <template name="thumbnail">
-	<a><img src="{{url}}"></a>
-</template> -->
-
-<template name="photos">
-	<div id="mygallery">
-		{{#each photos}}		
-			<a><img alt="{{name}}" src="{{url}}"></a>	
-		{{/each}}
-	</div>
+	<a><img alt="{{name}}" src="{{url}}"></a>
 </template>
