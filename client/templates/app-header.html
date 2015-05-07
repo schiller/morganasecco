@@ -1,5 +1,5 @@
 <template name="appHeader">
-	<nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -12,16 +12,18 @@
       </div>
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-         {{#each menuItems}}
-         <li class="{{isActive route}}"><a href="{{route}}">{{text}}</a></li>
-         {{/each}}
-       </ul>
-       <ul class="nav navbar-nav navbar-right">
-        <li><a href="http://getbootstrap.com/examples/navbar/">Default</a></li>
-        <li><a href="http://getbootstrap.com/examples/navbar-static-top/">Static top</a></li>
-        <li class="active"><a href="./Fixed Top Navbar Example for Bootstrap_files/Fixed Top Navbar Example for Bootstrap.html">Fixed top <span class="sr-only">(current)</span></a></li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div>
-</nav>
+          {{#each menuItems}}
+          <!-- <li class="{{isActive route}}"><a href="{{route}}">{{text}}</a></li> -->
+          <li class="{{isActive route}}"><a href="{{route}}" class="hidden-xs">{{text}}</a></li>
+          <li class="{{isActive route}}"><a href="{{route}}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a></li>
+          {{/each}}
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="http://getbootstrap.com/examples/navbar/">Default</a></li>
+          <li><a href="http://getbootstrap.com/examples/navbar-static-top/">Static top</a></li>
+          <li class="active"><a href="./Fixed Top Navbar Example for Bootstrap_files/Fixed Top Navbar Example for Bootstrap.html">Fixed top <span class="sr-only">(current)</span></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
 </template>
