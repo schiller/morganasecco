@@ -2,14 +2,6 @@
 Meteor.startup(function () {
   if (Photos.find().count() === 0) {
     var data = [
-      // {
-      //   name: "Foto de Grávida",
-      //   url: "https://d2dct7y3250e4n.cloudfront.net/ht-staging/user_answer/reference_image/1708/large/pregnant.jpeg"
-      // },
-      // {
-      //   name: "Foto de Família",
-      //   url: "http://dreamatico.com/data_images/family/family-3.jpg"
-      // },
       {
         name: "Foto de Família",
         url: "http://dummyimage.com/300x200/aaa/ffb.jpg"
@@ -48,11 +40,33 @@ Meteor.startup(function () {
       }
     ];
 
-    var timestamp = (new Date()).getTime();
     _.each(data, function(photo) {
       var photo_id = Photos.insert({
         name: photo.name,
         url: photo.url
+      });
+    });
+  }
+
+  if (Galleries.find().count() === 0) {
+    var galleries_data = [
+      {
+        name: "Galeria 1"
+      },
+      {
+        name: "Galeria 2"
+      },
+      {
+        name: "Galeria 3"
+      },
+      {
+        name: "Galeria 4"
+      }
+    ];
+
+    _.each(galleries_data, function(gallery) {
+      var gallery_id = Galleries.insert({
+        name: gallery.name
       });
     });
   }

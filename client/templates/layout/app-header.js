@@ -1,7 +1,7 @@
 Template.appHeader.helpers({
 	menuItems: [
 	{text: 'Fotos', route: 'photos'},
-	{text: 'Blog', route: 'blog'},
+	{text: 'Galerias', route: 'galleries'},
 	{text: 'Admin', route: 'admin'}
 	],
 	isActive: function (route) {
