@@ -1,7 +1,11 @@
 Template.photos.helpers({
 	photos: function () {
-		return Photos.find({});
-	}
+    if (this._id) {
+      return Photos.find({galleryId: this._id});
+    } else {
+      return Photos.find({});
+    }
+  }
 });
 
 Template.photos.rendered = function(){

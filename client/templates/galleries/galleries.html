@@ -8,7 +8,10 @@
 					<button id="search-btn" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</div>
 			</div>
-			<button id="add-btn" class="btn btn-default"><i class="glyphicon glyphicon-plus"></i></button>
+			<button id="add-gallery-btn" class="btn btn-default">
+				<i class="glyphicon glyphicon-plus"></i> Criar Galeria</button>
+			<button id="delete-galleries-btn" class="btn btn-default">
+				<i class="glyphicon glyphicon-trash"></i> Deletar Selecionados</button>
 		</div>
 	</form>
 
@@ -16,7 +19,7 @@
 		{{#each galleries}}
 		<div class="col-sm-4 top-buffer">
 			{{> galleryThumbnail}}
-		</div>			
+		</div>
 		{{/each}}
 	</div>
 

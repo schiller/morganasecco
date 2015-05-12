@@ -1,18 +1,14 @@
 <template name="fileUploader">
-	<form class="upload-files">
-		<div class="form-group">
-			<label for="file-input">Upload de imagens</label>
-			<input id="file-input" type="file" multiple="true">
-			<p class="help-block">Selecione uma ou mais imagens.</p>		
-		</div>
-		<button type="submit" class="btn btn-default">Upload</button>
-	</form>
+	<div class="upload-files">
+		<label for="file-input">Upload de imagens</label>
+		<input id="file-input" type="file" multiple="true">
+		<p class="help-block">Selecione uma ou mais imagens.</p>
+	</div>
 	<div class="container">
 		{{#each uploaders}}
-		<hr>
-		<div class="row">
+		<div class="row top-buffer">
 			{{> uploadedFile}}
 		</div>
 		{{/each}}
-	</div>	
+	</div>
 </template>

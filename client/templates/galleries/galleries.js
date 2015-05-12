@@ -3,3 +3,14 @@ Template.galleries.helpers({
 		return Galleries.find();
 	}
 });
+
+Template.galleries.events({
+  'click #add-gallery-btn': function () {
+    Galleries.insert({title: "Untitled"}, function (error, result) {
+      if (error) {alert(error.invalidKeys);}
+      Router.go('galleryUpdate', {_id: result});
+    });
+
+    return false;
+  }
+});

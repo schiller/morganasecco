@@ -13,15 +13,13 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           {{#each menuItems}}
-          <!-- <li class="{{isActive route}}"><a href="{{route}}">{{text}}</a></li> -->
-          <li class="{{isActive route}}"><a href="{{route}}" class="hidden-xs">{{text}}</a></li>
-          <li class="{{isActive route}}"><a href="{{route}}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a></li>
+          <li class="{{isActive route}}"><a href="{{ pathFor route }}" class="hidden-xs">{{text}}</a></li>
+          <li class="{{isActive route}}"><a href="{{ pathFor route }}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a></li>
           {{/each}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="http://getbootstrap.com/examples/navbar/">Default</a></li>
           <li><a href="http://getbootstrap.com/examples/navbar-static-top/">Static top</a></li>
-          <li class="active"><a href="./Fixed Top Navbar Example for Bootstrap_files/Fixed Top Navbar Example for Bootstrap.html">Fixed top <span class="sr-only">(current)</span></a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>

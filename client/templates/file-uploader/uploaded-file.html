@@ -1,10 +1,9 @@
 <template name="uploadedFile">
-	<div class="col-md-3">
+	<div class="col-sm-3">
 		<img src="{{url}}" class="img-responsive">
 	</div>
-	<div class="col-md-9">
+	<div class="col-sm-9">
 		<span>{{file.name}}</span>
-		{{> progressBar uploader=this}}
+		{{> progressBar uploader = this}}
 	</div>
-	
 </template>

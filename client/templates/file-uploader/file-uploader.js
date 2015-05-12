@@ -2,8 +2,14 @@ Template.fileUploader.onCreated(function () {
   this.uploaders = new ReactiveVar([]);
 });
 
+Template.fileUploader.helpers({
+  uploaders: function () {
+    return Template.instance().uploaders.get();
+  }
+});
+
 Template.fileUploader.events({
-  "submit .upload-files": function (event, template) {
+  "change #file-input": function (event, template) {
 
     var files = document.getElementById('file-input').files;
 
@@ -16,8 +22,14 @@ Template.fileUploader.events({
           if (error) {
             console.error('Error uploading', uploader.xhr.response);
           } else {
-            console.log('uploaded file available here: ' + downloadUrl);
-          }          
+            Photos.insert({title: file.name, url: downloadUrl, galleryId: template.data.galleryId},
+              function (error, result) {
+                if (error) {
+                  console.error('Error inserting', error);
+                }
+              }
+            );
+          }
         });
 
         return uploader;
@@ -27,11 +39,5 @@ Template.fileUploader.events({
     }
 
     return false;
-  }
-});
-
-Template.fileUploader.helpers({
-  uploaders: function () {
-    return Template.instance().uploaders.get();
   }
 });
