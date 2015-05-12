@@ -1,8 +1,7 @@
 Template.appHeader.helpers({
 	menuItems: [
 	{text: 'Fotos', route: 'photos'},
-	{text: 'Galerias', route: 'galleries'},
-	{text: 'Admin', route: 'admin'}
+	{text: 'Galerias', route: 'galleries'}
 	],
 	isActive: function (route) {
 		var currentRoute = Router.current();
