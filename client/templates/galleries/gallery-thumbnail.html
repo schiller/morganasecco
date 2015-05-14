@@ -1,10 +1,9 @@
 <template name="galleryThumbnail">
-  <div class="gallery-thumbnail">
-    <a href="{{ pathFor 'galleryDetails' _id=this._id}}">
-      <div class="gallery-thumbnail-fix">
-        <img src="{{cover.url}}" alt="{{title}}" class="img-responsive">
-        <div class="gallery-caption"><span>{{title}}</span></div>
-      </div>
-    </a>
-  </div>
+	<div class="gallery-thumbnail">
+		<a href="{{ pathFor 'galleryDetails' _id=this._id}}">
+			{{> squareThumbnail cover}}
+			<div class="add-images"><a href="{{ pathFor 'galleryUpdate' _id=this._id}}"><i class="glyphicon glyphicon-plus"></i></a></div>
+			<div class="gallery-caption"><span>{{title}}</span></div>
+		</a>
+	</div>
 </template>

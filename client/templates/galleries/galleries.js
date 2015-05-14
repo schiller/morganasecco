@@ -7,7 +7,11 @@ Template.galleries.helpers({
 Template.galleries.events({
   'click #add-gallery-btn': function () {
     Galleries.insert({title: "Untitled"}, function (error, result) {
-      if (error) {alert(error.invalidKeys);}
+      if (error) {
+        alert(error.invalidKeys);
+        return;
+      }
+      
       Router.go('galleryUpdate', {_id: result});
     });
 

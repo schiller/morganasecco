@@ -1,3 +1,9 @@
+Template.galleryUpdate.helpers({
+	photos: function () {
+		return Photos.find({galleryId: this._id});
+	}
+});
+
 Template.galleryUpdate.events({
   "click #save-gallery-btn": function (event, template) {
     var title = document.getElementById('galleryTitle').value;
