@@ -3,12 +3,8 @@
 	<div class="row">
 		<div id="mygallery">
 			{{#each photos}}
-			{{> thumbnail}}
+			<a><img alt="{{title}}" src="{{url}}"></a>
 			{{/each}}
 		</div>
 	</div>
-</template>
-
-<template name="thumbnail">
-	<a><img alt="{{title}}" src="{{url}}"></a>
 </template>

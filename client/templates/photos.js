@@ -10,7 +10,7 @@ Template.photos.helpers({
 
 Template.photos.rendered = function(){
 	$("#mygallery").justifiedGallery({
-		rowHeight : 200,
+		rowHeight : 300,
 		lastRow : 'nojustify',
 		margins : 25
 	});

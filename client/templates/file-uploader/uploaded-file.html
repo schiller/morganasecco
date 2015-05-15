@@ -1,6 +1,6 @@
 <template name="uploadedFile">
 	<div class="col-sm-3">
-		<img src="{{url}}" class="img-responsive">
+		{{> squareThumbnail this}}
 	</div>
 	<div class="col-sm-9">
 		<span>{{file.name}}</span>

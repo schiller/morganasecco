@@ -6,7 +6,7 @@ Template.galleries.helpers({
 
 Template.galleries.events({
   'click #add-gallery-btn': function () {
-    Galleries.insert({title: "Untitled"}, function (error, result) {
+    Galleries.insert({title: "Sem título"}, function (error, result) {
       if (error) {
         alert(error.invalidKeys);
         return;
