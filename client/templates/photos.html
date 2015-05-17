@@ -1,10 +1,13 @@
 <template name="photos">
-	<h2>{{title}}</h2>
+	<h2>{{title}}</h2>	
 	<div class="row">
 		<div id="mygallery">
 			{{#each photos}}
 			<a><img alt="{{title}}" src="{{url}}"></a>
 			{{/each}}
 		</div>
+	</div>
+	<div class="text-center">
+		<button id="load-more-btn" class="btn btn-primary {{hidden}}">Carregar Mais</button>
 	</div>
 </template>
