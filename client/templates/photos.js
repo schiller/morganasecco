@@ -5,7 +5,18 @@ Template.photos.onCreated(function() {
 	this.autorun(function() {
 		var limit = template.pageLimit.get();
 		Meteor.subscribe('paginatedPhotos', limit, {
-			onReady: function () {$("#mygallery").justifiedGallery('norewind');}
+			onReady: function () {
+				$("#mygallery").justifiedGallery('norewind')
+				.on('jg.complete', function () {
+					$(this).find('a').colorbox({
+						maxWidth : '100%',
+						maxHeight : '100%',
+						opacity : 0.9,
+						transition : 'elastic',
+						current : ''
+					});
+				});
+			}
 		});		
 	});
 });
@@ -14,7 +25,8 @@ Template.photos.onRendered(function(){
 	$("#mygallery").justifiedGallery({
 		rowHeight : 300,
 		lastRow : 'nojustify',
-		margins : 25
+		margins : 25,
+		rel: 'group'
 	});
 
 	// // is triggered every time we scroll
@@ -36,7 +48,9 @@ Template.photos.helpers({
 	},
 	hidden: function () {
 		var limit = Template.instance().pageLimit.get();
-		var photosCount = this._id ? Photos.find({galleryId: this._id}).count() : Photos.find().count();
+		var photosCount = this._id ? 
+		Photos.find({galleryId: this._id}).count() : 
+		Photos.find().count();
 
 		if (photosCount <= limit) {
 			return 'hidden';
