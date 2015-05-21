@@ -1,14 +1,17 @@
 <template name="galleryShow">
-	<h2>{{title}}</h2>	
+	<h2>{{title}}</h2>
 	<div class="row">
 		<div id="mygallery">
 			{{#each photos}}
-			<a href="{{url}}"><img alt="{{title}}" src="{{url}}"></a>
+			{{> photoThumbnail}}
 			{{/each}}
 		</div>
 	</div>
 	<div class="text-center">
 		<button id="load-more-btn" class="btn btn-primary {{hidden}}">Carregar Mais</button>
 	</div>
-	{{bindEvents}}
+</template>
+
+<template name="photoThumbnail">
+	<a href="{{url}}"><img alt="{{title}}" src="{{url}}"></a>
 </template>

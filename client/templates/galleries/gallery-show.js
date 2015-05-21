@@ -37,16 +37,16 @@ Template.galleryShow.onRendered(function(){
 					current : ''
 				});
 			});
-		}, 0);
+		}, 100);
 	});
 
-	this.autorun(function() {
-		var limit = self.pageLimit.get();
+	// this.autorun(function() {
+	// 	var limit = self.pageLimit.get();
 
-		setTimeout(function () {
-			self.$("#mygallery").justifiedGallery('norewind');
-		}, 0);
-	});
+	// 	setTimeout(function () {
+	// 		self.$("#mygallery").justifiedGallery('norewind');
+	// 	}, 0);
+	// });
 
 	// // is triggered every time we scroll
 	// $(window).scroll(function() {
@@ -54,6 +54,10 @@ Template.galleryShow.onRendered(function(){
 	// 		incrementLimit();
 	// 	}
 	// });
+});
+
+Template.photoThumbnail.onRendered(function () {
+	$("#mygallery").justifiedGallery('norewind');
 });
 
 Template.galleryShow.helpers({
@@ -67,8 +71,8 @@ Template.galleryShow.helpers({
 	},
 	hidden: function () {
 		var limit = Template.instance().pageLimit.get();
-		var photosCount = this._id ? 
-		Photos.find({galleryId: this._id}).count() : 
+		var photosCount = this._id ?
+		Photos.find({galleryId: this._id}).count() :
 		Photos.find().count();
 
 		if (photosCount <= limit) {

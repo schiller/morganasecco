@@ -22,9 +22,9 @@
           {{/each}}
           {{#each dynamicMenuItems}}
           <li class="{{isGalleryActive _id}}"><a href="/galleries/{{_id}}" class="hidden-xs">{{title}}</a></li>
-          <!-- <li class="{{isActive route}}">
-            <a href="{{ route }}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a>
-          </li> -->
+          <li class="{{isGalleryActive _id}}">
+            <a href="/galleries/{{_id}}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{title}}</a>
+          </li>
           {{/each}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
