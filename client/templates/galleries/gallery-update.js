@@ -11,8 +11,9 @@ Template.galleryUpdate.helpers({
 Template.galleryUpdate.events({
   "click #save-gallery-btn": function (event, template) {
     var title = document.getElementById('galleryTitle').value;
+    var featured = document.getElementById('galleryFeatured').checked;
 
-    Galleries.update(this._id, {$set: {title: title}}, function (error, result) {
+    Galleries.update(this._id, {$set: {title: title, featured: featured}}, function (error, result) {
       if (error) {alert(error);}
       alert(result);
     });

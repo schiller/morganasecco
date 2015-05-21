@@ -1,6 +1,6 @@
 <template name="galleryThumbnail">
 	<div class="gallery-thumbnail">
-		<a href="{{ pathFor 'galleryDetails' _id=this._id}}">
+		<a href="{{ pathFor 'galleryShow' _id=this._id}}">
 			{{> squareThumbnail cover}}
 			<div class="add-images"><a href="{{ pathFor 'galleryUpdate' _id=this._id}}"><i class="glyphicon glyphicon-plus"></i></a></div>
 			<div class="gallery-caption"><span>{{title}}</span></div>

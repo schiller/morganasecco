@@ -1,15 +1,33 @@
-Meteor.publish('galleries', function() {
-  return Galleries.find();
+Meteor.publish('galleries', function (query, projection) {
+	var data;
+
+	if (query) {
+		projection = projection || {};
+		data = Galleries.find(query, projection);
+	} else {
+		data = Galleries.find();
+	}
+
+	if (data) {
+		return data;
+	}
+
+	return this.ready();
 });
 
-Meteor.publish('photos', function() {
-  return Photos.find();
-});
+Meteor.publish('photos', function (query, projection) {
+	var data;
 
-Meteor.publish('paginatedPhotos', function(limit) {
-  if (limit > Photos.find().count()) {
-    limit = 0;
-  }
+	if (query) {
+		projection = projection || {};
+		data = Photos.find(query, projection);
+	} else {
+		data = Photos.find();
+	}
 
-  return Photos.find({}, {limit: limit});
+	if (data) {
+		return data;
+	}
+
+	return this.ready();
 });

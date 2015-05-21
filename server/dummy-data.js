@@ -5,7 +5,8 @@ Meteor.startup(function () {
   if (Galleries.find().count() === 0) {
     var galleries_data = [
       {
-        title: "Galeria 1"
+        title: "Destaque 1",
+        featured: true
       },
       {
         title: "Galeria 2"

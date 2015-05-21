@@ -1,32 +1,37 @@
-Template.photos.onCreated(function() {
-	var template = this;
-	this.pageLimit = new ReactiveVar(10);
-
-	this.autorun(function() {
-		var limit = template.pageLimit.get();
-		Meteor.subscribe('paginatedPhotos', limit, {
-			onReady: function () {
-				$("#mygallery").justifiedGallery('norewind')
-				.on('jg.complete', function () {
-					$(this).find('a').colorbox({
-						maxWidth : '100%',
-						maxHeight : '100%',
-						opacity : 0.9,
-						transition : 'elastic',
-						current : ''
-					});
-				});
-			}
-		});		
-	});
+Template.galleryShow.onCreated(function() {
+	var self = this;
+	this.pageLimit = new ReactiveVar(pageLimit);
 });
 
-Template.photos.onRendered(function(){
-	$("#mygallery").justifiedGallery({
-		rowHeight : 300,
-		lastRow : 'nojustify',
-		margins : 25,
-		rel: 'group'
+Template.galleryShow.onRendered(function(){
+	var self = this;
+
+	this.autorun(function () {
+		Template.currentData();
+
+		setTimeout(function () {
+			self.$("#mygallery").justifiedGallery({
+				rowHeight : 350,
+				margins : 10,
+				rel: 'group'
+			}).on('jg.complete', function () {
+				self.$(this).find('a').colorbox({
+					maxWidth : '100%',
+					maxHeight : '100%',
+					opacity : 0.9,
+					transition : 'elastic',
+					current : ''
+				});
+			});
+		}, 0);
+	});
+
+	this.autorun(function() {
+		var limit = self.pageLimit.get();
+
+		setTimeout(function () {
+			self.$("#mygallery").justifiedGallery('norewind');
+		}, 0);
 	});
 
 	// // is triggered every time we scroll
@@ -37,7 +42,7 @@ Template.photos.onRendered(function(){
 	// });
 });
 
-Template.photos.helpers({
+Template.galleryShow.helpers({
 	photos: function () {
 		var limit = Template.instance().pageLimit.get();
 		if (this._id) {
@@ -60,14 +65,16 @@ Template.photos.helpers({
 	}
 });
 
-Template.photos.events({
+Template.galleryShow.events({
 	'click #load-more-btn': function (event, template) {
 		incrementLimit(template);
 	}
 });
 
+pageLimit = 10;
+
 incrementLimit = function(template, inc) {
-	inc = typeof inc !== 'undefined' ? inc : 10;
+	inc = typeof inc !== 'undefined' ? inc : pageLimit;
 	var limit = template.pageLimit.get();
 	newLimit = limit + inc;
 	template.pageLimit.set(newLimit);
