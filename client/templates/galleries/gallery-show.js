@@ -6,6 +6,20 @@ Template.galleryShow.onCreated(function() {
 Template.galleryShow.onRendered(function(){
 	var self = this;
 
+	self.$("#mygallery").justifiedGallery({
+		rowHeight : 350,
+		margins : 10,
+		rel: 'group'
+	}).on('jg.complete', function () {
+		self.$(this).find('a').colorbox({
+			maxWidth : '100%',
+			maxHeight : '100%',
+			opacity : 0.9,
+			transition : 'elastic',
+			current : ''
+		});
+	});
+
 	this.autorun(function () {
 		Template.currentData();
 
