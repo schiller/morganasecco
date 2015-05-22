@@ -4,19 +4,13 @@ Meteor.startup(function () {
 
   if (Galleries.find().count() === 0) {
     var galleries_data = [
-      {
-        title: "Destaque 1",
-        featured: true
-      },
-      {
-        title: "Galeria 2"
-      },
-      {
-        title: "Galeria 3"
-      },
-      {
-        title: "Galeria 4"
-      }
+    {
+      title: "Destaque 1",
+      featured: true
+    },
+    {
+      title: "Galeria 2"
+    }
     ];
 
     _.each(galleries_data, function(gallery) {
@@ -29,51 +23,21 @@ Meteor.startup(function () {
 
   if (Photos.find().count() === 0) {
     var data = [
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/300x200/aaa/ffb.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/300x200/b8f/ffb.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/300x200/8ff/ffc.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/400x200/88f/ffa.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/300x300/8f3b8f/ffb.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/350x200/8f3b8f/ffc.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/300x200/8f3b8f/ffa.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/360x200/8f3b8f/ffb.jpg",
-        galleryId: gallery_ids[0]
-      },
-      {
-        title: "Foto de Família",
-        url: "http://dummyimage.com/400x200/8f3b8f/ffc.jpg",
-        galleryId: gallery_ids[0]
-      }
+    {
+      title: "Foto de Família",
+      url: "http://dummyimage.com/300x200/aaa/ffb.jpg",
+      galleryId: gallery_ids[0]
+    },
+    {
+      title: "Foto de Família",
+      url: "http://dummyimage.com/300x200/b8f/ffb.jpg",
+      galleryId: gallery_ids[0]
+    },
+    {
+      title: "Foto de Família",
+      url: "http://dummyimage.com/300x200/8ff/ffc.jpg",
+      galleryId: gallery_ids[0]
+    }
     ];
 
     _.each(data, function(photo) {
@@ -83,5 +47,31 @@ Meteor.startup(function () {
         galleryId: photo.galleryId
       });
     });
-  }  
+  }
+
+  if (Meteor.users.find().count() === 0) {
+    var users = [
+    {name:"Normal User",email:"normal@example.com",roles:[]},
+    {name:"Admin User",email:"admin@example.com",roles:['admin']}
+    ];
+
+    _.each(users, function (user) {
+      var id;
+
+      id = Accounts.createUser({
+        email: user.email,
+        password: "1234",
+        profile: { name: user.name }
+      });
+
+      if (user.roles.length > 0) {
+        // Need _id of existing user record so this call must come
+        // after `Accounts.createUser` or `Accounts.onCreate`
+        Roles.addUsersToRoles(id, user.roles);
+      }
+
+    });
+  }
 });
+
+

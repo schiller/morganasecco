@@ -1,33 +1,46 @@
-Meteor.publish('galleries', function (query, projection) {
+Meteor.publish(null, function (){
+	return Meteor.roles.find({});
+});
+
+Meteor.publish('featuredGalleries', function () {
 	var data;
 
-	if (query) {
-		projection = projection || {};
-		data = Galleries.find(query, projection);
-	} else {
-		data = Galleries.find();
+	data = Galleries.find({featured: true});
+
+	if (data) { return data; }
+
+	return this.ready();
+});
+
+Meteor.publish('galleries', function (query, projection) {
+	var data;
+	query = query || {};
+	projection = projection || {};
+
+	if (!Roles.userIsInRole(this.userId, 'admin')) {
+		if (this.userId) {
+			var user = Meteor.users.findOne({_id: this.userId});
+			query.email = user.emails[0].address;
+		} else {
+			return this.ready();
+		}
 	}
 
-	if (data) {
-		return data;
-	}
+	data = Galleries.find(query, projection);
+
+	if (data) { return data; }
 
 	return this.ready();
 });
 
 Meteor.publish('photos', function (query, projection) {
 	var data;
+	query = query || {};
+	projection = projection || {};
 
-	if (query) {
-		projection = projection || {};
-		data = Photos.find(query, projection);
-	} else {
-		data = Photos.find();
-	}
+	data = Photos.find(query, projection);
 
-	if (data) {
-		return data;
-	}
+	if (data) { return data; }
 
 	return this.ready();
 });

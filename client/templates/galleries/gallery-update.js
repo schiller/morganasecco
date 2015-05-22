@@ -22,13 +22,13 @@ Template.galleryUpdate.events({
   },
   "click #delete-gallery-btn": function (event, template) {
     var confirmDelete = confirm("Tem certeza que deseja deletar a galeria e todas suas fotos? Esta ação é irreversível.");
-    
+
     if (confirmDelete === true) {
       Meteor.call("removePhotos", this._id);
       Galleries.remove(this._id);
 
-      Router.go('galleries');
-    }   
+      Router.go('galleryList');
+    }
 
     return false;
   },
@@ -51,7 +51,7 @@ Template.galleryUpdate.events({
     event.preventDefault();
 
     var confirmDelete = confirm("Tem certeza que deseja deletar as fotos selecionadas? Esta ação é irreversível.");
-    
+
     if (confirmDelete === true) {
       var selectedPhotos = Template.instance().selectedPhotos.get();
 
@@ -60,7 +60,7 @@ Template.galleryUpdate.events({
       })
 
       Template.instance().selectedPhotos.set([]);
-    }   
+    }
 
     return false;
   }
