@@ -66,7 +66,9 @@ Template.galleryShow.helpers({
 		if (this._id) {
 			return Photos.find({galleryId: this._id}, { limit: limit });
 		} else {
-			return Photos.find({}, { limit: limit });
+			// return Photos.find({}, { limit: limit });
+			Router.go('/');
+			return false;
 		}
 	},
 	hidden: function () {
