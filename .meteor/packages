@@ -12,7 +12,6 @@ jquery
 twbs:bootstrap
 reactive-var
 aldeed:collection2
-aldeed:autoform
 accounts-password
 ian:accounts-ui-bootstrap-3
 spiderable
