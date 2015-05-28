@@ -1,6 +1,5 @@
 <template name="galleries">
-
-	<form class="form-inline">
+	<form>
 		<div class="form-group">
 			<div class="input-group">
 				<input id="search-txt" type="text" class="form-control" placeholder="Buscar">
@@ -8,12 +7,13 @@
 					<button id="search-btn" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 				</div>
 			</div>
-			<button id="add-gallery-btn" class="btn btn-default">
-				<i class="glyphicon glyphicon-plus"></i> Criar Galeria</button>
-			<button id="delete-galleries-btn" class="btn btn-default">
-				<i class="glyphicon glyphicon-trash"></i> Deletar Selecionados</button>
 		</div>
 	</form>
+
+	{{#if isInRole 'admin'}}
+		<button id="add-gallery-btn" class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> Criar Galeria</button>
+		<button id="delete-galleries-btn" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Deletar Selecionados</button>
+	{{/if}}
 
 	<div class="row ">
 		{{#each galleries}}
@@ -22,5 +22,4 @@
 		</div>
 		{{/each}}
 	</div>
-
 </template>

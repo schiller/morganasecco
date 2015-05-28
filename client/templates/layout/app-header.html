@@ -13,8 +13,6 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           {{#each staticMenuItems}}
-          <!-- <li class="{{isActive route}}"><a href="{{ pathFor route }}" class="hidden-xs">{{text}}</a></li>
-          <li class="{{isActive route}}"><a href="{{ pathFor route }}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a></li> -->
           <li class="{{isActive route}}"><a href="{{ route }}" class="hidden-xs">{{text}}</a></li>
           <li class="{{isActive route}}">
             <a href="{{ route }}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a>
@@ -29,7 +27,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{> loginButtons}}
+          {{#if isInRole 'admin'}}
           <li><a href="/admin"><i class="glyphicon glyphicon-cog"></i></a></li>
+          {{/if}}
         </ul>
       </div><!--/.nav-collapse -->
     </div>
