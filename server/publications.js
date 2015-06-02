@@ -3,12 +3,12 @@ Meteor.publish(null, function (){
 });
 
 // featuredGalleries
-Meteor.publish(null, function () {
+Meteor.publish('featuredGalleries', function () {
 	return Galleries.find({featured: true});
 });
 
 // featuredPhotos
-Meteor.publish(null, function () {
+Meteor.publish('featuredPhotos', function () {
 	var galleries =  Galleries.find({featured: true}).fetch();
 	var galleryIds = galleries.map(function (gallery) {
 		return gallery._id;
