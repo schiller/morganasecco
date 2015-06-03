@@ -7,6 +7,8 @@ Meteor.methods({
 
         var emailTo = Meteor.settings.ContactEmail || "contato@morganasecco.com.br";
 
+        var emailFrom = Meteor.settings.FromEmail || "morganasecco@morganasecco.com.br";
+
         // Build the e-mail text
         var text = "Name: " + doc.name + "\n\n" + "Email: " + doc.email + "\n\n\n\n" + doc.message;
 
@@ -15,7 +17,7 @@ Meteor.methods({
         // Send the e-mail
         Email.send({
             to: emailTo,
-            from: emailTo,
+            from: emailFrom,
             subject: subject,
             text: text
         });
