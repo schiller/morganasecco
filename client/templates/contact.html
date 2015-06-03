@@ -1,7 +1,8 @@
 <template name="contact">
+  <h1>Contato</h1>
   {{#autoForm schema=contactFormSchema id="contactForm" type="method" meteormethod="sendEmail"}}
   <fieldset>
-    <legend>Contato</legend>
+    <!-- <legend>Contato</legend> -->
     {{> afQuickField name="name"}}
     {{> afQuickField name="email"}}
     {{> afQuickField name="subject"}}
