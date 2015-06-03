@@ -1,0 +1,15 @@
+<template name="contact">
+  {{#autoForm schema=contactFormSchema id="contactForm" type="method" meteormethod="sendEmail"}}
+  <fieldset>
+    <legend>Contato</legend>
+    {{> afQuickField name="name"}}
+    {{> afQuickField name="email"}}
+    {{> afQuickField name="subject"}}
+    {{> afQuickField name="message" rows=10}}
+    <div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="reset" class="btn btn-default">Limpar</button>
+    </div>
+  </fieldset>
+  {{/autoForm}}
+</template>

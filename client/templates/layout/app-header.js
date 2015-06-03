@@ -1,8 +1,8 @@
 Template.appHeader.helpers({
 	staticMenuItems: function () {
 		return [
-			// {text: 'Fotos', route: '/photos'},
-			{text: 'Galerias', route: '/galleries'}
+			{text: 'Galerias', route: '/galleries'},
+			{text: 'Contato', route: '/contact'}
 		];
 	},
 	dynamicMenuItems: function () {
