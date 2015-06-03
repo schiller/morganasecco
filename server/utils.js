@@ -15,7 +15,7 @@ Meteor.methods({
         // Send the e-mail
         Email.send({
             to: emailTo,
-            from: doc.email,
+            from: emailTo,
             subject: subject,
             text: text
         });
