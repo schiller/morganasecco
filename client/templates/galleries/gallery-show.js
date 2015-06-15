@@ -7,7 +7,7 @@ Template.galleryShow.onRendered(function(){
 	var self = this;
 
 	self.$("#mygallery").justifiedGallery({
-		rowHeight : 350,
+		rowHeight : 250,
 		margins : 10,
 		rel: 'group'
 	}).on('jg.complete', function () {
@@ -25,7 +25,7 @@ Template.galleryShow.onRendered(function(){
 
 		setTimeout(function () {
 			self.$("#mygallery").justifiedGallery({
-				rowHeight : 350,
+				rowHeight : 250,
 				margins : 10,
 				rel: 'group'
 			}).on('jg.complete', function () {
@@ -39,14 +39,6 @@ Template.galleryShow.onRendered(function(){
 			});
 		}, 100);
 	});
-
-	// this.autorun(function() {
-	// 	var limit = self.pageLimit.get();
-
-	// 	setTimeout(function () {
-	// 		self.$("#mygallery").justifiedGallery('norewind');
-	// 	}, 0);
-	// });
 
 	// // is triggered every time we scroll
 	// $(window).scroll(function() {

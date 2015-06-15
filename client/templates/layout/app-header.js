@@ -2,6 +2,7 @@ Template.appHeader.helpers({
 	staticMenuItems: function () {
 		return [
 			{text: 'Galerias', route: '/galleries'},
+			{text: 'Posts', route: '/posts'},
 			{text: 'Contato', route: '/contact'}
 		];
 	},
