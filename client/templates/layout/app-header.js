@@ -3,6 +3,7 @@ Template.appHeader.helpers({
 		return [
 			{text: 'Galerias', route: '/galleries'},
 			{text: 'Posts', route: '/posts'},
+			{text: 'Posts Admin', route: '/posts-admin'},
 			{text: 'Contato', route: '/contact'}
 		];
 	},

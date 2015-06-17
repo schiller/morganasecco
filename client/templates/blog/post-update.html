@@ -1,0 +1,13 @@
+<template name='postUpdate'>
+	<h1>Post Update</h1>
+	{{#autoForm collection="Posts" doc=this id="updatePost" type="update"}}
+	<fieldset>
+		{{> afQuickField name='title'}}
+		{{> afQuickField name='text' rows=6}}
+		{{> afQuickField name='published'}}
+	</fieldset>
+	<button type="submit" class="btn btn-primary">Salvar</button>
+	{{/autoForm}}
+	<hr/>
+	{{> galleryManagePhotos gallery}}
+</template>

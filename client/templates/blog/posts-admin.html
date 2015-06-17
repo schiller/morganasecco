@@ -1,0 +1,12 @@
+<template name='postsAdmin'>
+	<h1>Posts Admin</h1>
+	<div>
+		<ul>
+			{{#each posts}}
+				<li class="col-xs-12">
+					{{> postThumbnailAdmin}}
+				</li>
+			{{/each}}
+		</ul>
+	</div>
+</template>

@@ -1,0 +1,25 @@
+<template name="galleryManagePhotos">
+  <form>
+    <div class="form-group">
+      {{> fileUploader galleryId = this._id}}
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+      <button id="select-all-photos-btn" class="btn btn-default"><i class="glyphicon glyphicon-ok"></i> Selecionar Todos</button>
+      <button id="unselect-all-photos-btn" class="btn btn-default"><i class="glyphicon glyphicon-ok"></i> Deselecionar Todos</button>
+      <button id="delete-photos-btn" class="btn btn-danger"><i class="glyphicon glyphicon-trash"></i> Deletar Selecionados</button>
+      <div class="row">
+        {{#each photos}}
+        <div class="col-sm-2 col-xs-6 top-buffer">
+          <div class="photo-thumbnail" data-photo-id="{{_id}}">
+            {{> squareThumbnail}}
+            <div class="photo-check"><i class="glyphicon glyphicon-ok"></i></div>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </form>
+</template>

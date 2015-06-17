@@ -1,4 +1,7 @@
 <template name='postShow'>
 	<h1>{{title}}</h1>
 	<p>{{text}}</p>
+	{{#if gallery}}
+		{{> galleryJustified gallery}}
+	{{/if}}
 </template>

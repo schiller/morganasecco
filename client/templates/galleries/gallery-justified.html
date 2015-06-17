@@ -1,0 +1,12 @@
+<template name="galleryJustified">
+	<div class="row">
+		<div id="justified-gallery">
+			{{#each photos}}
+			{{> photoJustified}}
+			{{/each}}
+		</div>
+	</div>
+	<div class="text-center">
+		<button id="load-more-btn" class="btn btn-primary {{hidden}}">Carregar Mais</button>
+	</div>
+</template>
