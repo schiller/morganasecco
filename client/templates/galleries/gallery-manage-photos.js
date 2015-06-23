@@ -10,19 +10,19 @@ Template.galleryManagePhotos.helpers({
 
 Template.galleryManagePhotos.events({
   "click .photo-thumbnail": function (event, template) {
-    Template.galleryUpdate.togglePhoto(event.currentTarget);
+    Template.galleryManagePhotos.togglePhoto(event.currentTarget);
   },
   "click #select-all-photos-btn": function (event, template) {
     event.preventDefault();
 
     var photoThumbnails = $(".photo-thumbnail").get();
-    _.each(photoThumbnails, Template.galleryUpdate.selectPhoto);
+    _.each(photoThumbnails, Template.galleryManagePhotos.selectPhoto);
   },
   "click #unselect-all-photos-btn": function (event, template) {
     event.preventDefault();
 
     var photoThumbnails = $(".photo-thumbnail").get();
-    _.each(photoThumbnails, Template.galleryUpdate.unselectPhoto);
+    _.each(photoThumbnails, Template.galleryManagePhotos.unselectPhoto);
   },
   "click #delete-photos-btn": function (event, template) {
     event.preventDefault();
