@@ -1,5 +1,5 @@
 <template name="appHeader">
-  <nav class="navbar navbar-default navbar-fixed-top translucid">
+  <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -23,7 +23,7 @@
           <li class="{{isActive route}}">
             <a href="{{ route }}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a>
           </li>
-          {{/each}}          
+          {{/each}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
           {{> loginButtons}}

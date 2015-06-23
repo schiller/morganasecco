@@ -9,7 +9,6 @@ iron:router
 less
 edgee:slingshot
 jquery
-twbs:bootstrap
 reactive-var
 aldeed:collection2
 accounts-password
@@ -20,3 +19,5 @@ launch-screen
 aldeed:autoform
 email
 reywood:publish-composite
+fortawesome:fontawesome
+nemo64:bootstrap
