@@ -1,17 +1,32 @@
+Meteor.publishComposite('featuredPosts', function () {
+	return {
+		find: function () {
+			var query = {published: true, featured: true};
+			return Posts.find(query);
+		}
+	};
+});
+
 Meteor.publishComposite('posts', function (postId) {
 	return {
 		find: function () {
-			var query = {published: true};
+			var query = {};
+			if (!Roles.userIsInRole(this.userId, 'admin')) {
+				query.published = true;
+			}
 			if (postId) {query._id = postId;}
 			return Posts.find(query);
 		},
 		children: [
 		{
 			find: function (post) {
-				return Galleries.find({_id: post.galleryId});
+				if (postId) {
+					return Photos.find({postId: post._id});
+				} else {
+					return Photos.find({postId: post.coverId});
+				}
 			}
-		}
-		]
+		}]
 	};
 });
 
@@ -22,15 +37,18 @@ Meteor.publishComposite('postsAdmin', function (postId) {
 				return this.stop();
 			}
 			var query = {};
-			if (postId) {query._id = postId;}			
+			if (postId) {query._id = postId;}
 			return Posts.find(query);
 		},
 		children: [
 		{
 			find: function (post) {
-				return Galleries.find({_id: post.galleryId});
+				if (postId) {
+					return Photos.find({postId: post._id});
+				} else {
+					return Photos.find({postId: post.coverId});
+				}
 			}
-		}
-		]
+		}]
 	};
 });

@@ -63,7 +63,7 @@ Template.galleryJustified.helpers({
 	photos: function () {
 		var limit = Template.instance().pageLimit.get();
 		if (this._id) {
-			return Photos.find({galleryId: this._id}, { limit: limit });
+			return Photos.find({postId: this._id}, { limit: limit });
 		} else {
 			// return Photos.find({}, { limit: limit });
 			Router.go('/');
@@ -73,7 +73,7 @@ Template.galleryJustified.helpers({
 	hidden: function () {
 		var limit = Template.instance().pageLimit.get();
 		var photosCount = this._id ?
-		Photos.find({galleryId: this._id}).count() :
+		Photos.find({postId: this._id}).count() :
 		Photos.find().count();
 
 		if (photosCount <= limit) {

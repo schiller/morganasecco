@@ -3,7 +3,7 @@
 		<a href="{{ pathFor 'galleryShow' _id=this._id}}">
 			{{> squareThumbnail cover}}
       {{#if isInRole 'admin'}}
-      <div class="add-images"><a href="{{ pathFor 'galleryUpdate' _id=this._id}}"><i class="glyphicon glyphicon-edit"></i></a></div>
+      <div class="add-images"><a href="{{ pathFor 'postUpdate' _id=this._id}}"><i class="glyphicon glyphicon-edit"></i></a></div>
       {{/if}}
       <div class="gallery-caption"><span>{{title}}</span></div>
     </a>

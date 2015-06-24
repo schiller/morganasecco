@@ -4,7 +4,7 @@ Template.galleryManagePhotos.onCreated(function () {
 
 Template.galleryManagePhotos.helpers({
 	photos: function () {
-		return Photos.find({galleryId: this._id});
+		return Photos.find({postId: this._id});
 	}
 });
 

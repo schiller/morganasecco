@@ -1,14 +1,13 @@
 Template.appHeader.helpers({
 	staticMenuItems: function () {
 		return [
-			{text: 'Galerias', route: '/galleries'},
 			{text: 'Posts', route: '/posts'},
 			{text: 'Posts Admin', route: '/posts-admin'},
 			{text: 'Contato', route: '/contact'}
 		];
 	},
 	dynamicMenuItems: function () {
-		return Galleries.find({featured: true});
+		return Posts.find({featured: true, published: true});
 	},
 	isActive: function (route) {
 		var currentRoute = Router.current();
@@ -23,14 +22,14 @@ Template.appHeader.helpers({
 			return "";
 		}
 	},
-	isGalleryActive: function (id) {
+	isPostActive: function (id) {
 		var currentRoute = Router.current();
 		// if (currentRoute && currentRoute.route.getName() === route) {
 		// 	return "active";
 		// } else {
 		// 	return "";
 		// }
-		if (currentRoute && currentRoute.originalUrl === "/galleries/" + id) {
+		if (currentRoute && currentRoute.originalUrl === "/posts/" + id) {
 			return "active";
 		} else {
 			return "";

@@ -1,35 +1,28 @@
-// featuredPhotos
-Meteor.publish('featuredPhotos', function () {
-	var galleries =  Galleries.find({featured: true}).fetch();
-	var galleryIds = galleries.map(function (gallery) {
-		return gallery._id;
-	});
-	return Photos.find({galleryId: {$in: galleryIds}});
-});
+// Meteor.publishComposite('featuredPhotos', function () {
+// 	return {
+// 		find: function () {
+// 			var posts =  Posts.find({published: true, featured: true}).fetch();
+// 			var postIds = posts.map(function (post) {
+// 				return post._id;
+// 			});
 
-Meteor.publish('photos', function (query, projection) {
-	var data;
-	query = query || {};
-	projection = projection || {};
+// 			return Photos.find({postId: {$in: postIds}});
+// 		}
+// 	};
+// });
 
-	// So pode ver as fotos associadas a seu email
-	if (!Roles.userIsInRole(this.userId, 'admin')) {
-		if (this.userId) {
-			var user = Meteor.users.findOne({_id: this.userId});
-			var email = user.emails[0].address;
-			var galleries =  Galleries.find({email: email}).fetch();
-			var galleryIds = galleries.map(function (gallery) {
-				return gallery._id;
-			});
-			query.galleryId = {$in: galleryIds};
-		} else {
-			return this.stop();
-		}
-	}
+// Meteor.publishComposite('photos', function (postId) {
+// 	return {
+// 		find: function () {
+// 			var query = {};
 
-	data = Photos.find(query, projection);
+// 			if (!postId) {
+// 				return this.stop();
+// 			}
 
-	if (data) { return data; }
+// 			query.postId = postId;
 
-	return this.ready();
-});
+// 			return Photos.find(query);
+// 		}
+// 	};
+// });

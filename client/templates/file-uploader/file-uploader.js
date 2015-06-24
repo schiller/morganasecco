@@ -22,7 +22,7 @@ Template.fileUploader.events({
           if (error) {
             console.error('Error uploading', uploader.xhr.response);
           } else {
-            Photos.insert({title: file.name, url: downloadUrl, galleryId: template.data.galleryId},
+            Photos.insert({title: file.name, url: downloadUrl, postId: template.data.postId},
               function (error, result) {
                 if (error) {
                   console.error('Error inserting', error);

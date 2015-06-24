@@ -5,9 +5,10 @@
 		{{> afQuickField name='title'}}
 		{{> afQuickField name='text' rows=6}}
 		{{> afQuickField name='published'}}
+		{{> afQuickField name='featured'}}
 	</fieldset>
 	<button type="submit" class="btn btn-primary">Salvar</button>
 	{{/autoForm}}
 	<hr/>
-	{{> galleryManagePhotos gallery}}
+	{{> galleryManagePhotos this}}
 </template>

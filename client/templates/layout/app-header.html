@@ -13,9 +13,9 @@
       <div id="navbar" class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
           {{#each dynamicMenuItems}}
-          <li class="{{isGalleryActive _id}}"><a href="/galleries/{{_id}}" class="hidden-xs">{{title}}</a></li>
-          <li class="{{isGalleryActive _id}}">
-            <a href="/galleries/{{_id}}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{title}}</a>
+          <li class="{{isPostActive _id}}"><a href="/posts/{{_id}}" class="hidden-xs">{{title}}</a></li>
+          <li class="{{isPostActive _id}}">
+            <a href="/posts/{{_id}}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{title}}</a>
           </li>
           {{/each}}
           {{#each staticMenuItems}}
