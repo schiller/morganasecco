@@ -1,12 +1,10 @@
 <template name='posts'>
 	<h1>Posts</h1>
-	<div>
-		<ul>
-			{{#each posts}}
-				<li class="col-xs-12 col-sm-4">
-					{{> postThumbnail}}
-				</li>
-			{{/each}}
-		</ul>
+	<div class="row">
+		{{#each posts}}
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			{{> postThumbnail}}
+		</div>
+		{{/each}}
 	</div>
 </template>
