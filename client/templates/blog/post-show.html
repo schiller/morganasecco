@@ -1,5 +1,64 @@
 <template name='postShow'>
-	<h1>{{title}}</h1>
-	<p>{{text}}</p>
-	{{> galleryJustified this}}
+	<!-- Head Section -->
+	<section class="small-section bg-gray-lighter">
+		<div class="relative container align-left">
+
+			<div class="row">
+
+				<div class="col-md-8">
+					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Blog single</h1>
+					<div class="hs-line-4 font-alt black">
+						We share our best ideas in our blog
+					</div>
+				</div>
+
+				<div class="col-md-4 mt-30">
+					<div class="mod-breadcrumbs font-alt align-right">
+						<a href="/">Home</a>&nbsp;/&nbsp;<a href="{{pathFor route='posts'}}">Blog</a>&nbsp;/&nbsp;<span>Single</span>
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End Head Section -->
+
+	<!-- Section -->
+	<section class="page-section">
+		<div class="container relative">                    
+			<div class="row">                        
+				<!-- Content -->
+				<div class="col-sm-10 col-sm-offset-1">                            
+					<!-- Post -->
+					<div class="blog-item mb-80 mb-xs-40">
+
+						<!-- Text -->
+						<div class="blog-item-body">
+
+							<h1 class="mt-0 font-alt">{{title}}</h1>
+
+							<div class="lead">
+								<p>
+									Morbi lacus massa, euismod ut turpis molestie, tristique sodales est. Integer sit amet mi id sapien tempor molestie in nec massa.
+									Fusce non ante sed lorem rutrum feugiat.
+								</p>
+							</div>
+							<!-- End Text -->
+
+							<p>{{text}}</p>
+
+							{{> galleryJustified this}}
+
+						</div>
+						<!-- End Text -->
+
+					</div>
+					<!-- End Post -->                            
+				</div>
+				<!-- End Content -->                        
+			</div>                    
+		</div>
+	</section>
+	<!-- End Section -->
 </template>
