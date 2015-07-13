@@ -1,4 +1,8 @@
 Template.appHeader.onRendered(function () {
+	$(".js-stick").sticky({
+		topSpacing: 0
+	});
+
 	$(window).scroll(function () {
 		if ($(window).scrollTop() > 10) {
 			$(".main-nav").removeClass("transparent");
@@ -55,19 +59,7 @@ Template.appHeader.events({
 		}
 
 		return false;
-	},
-	// 'mouseenter .mn-has-sub': function (event) {
-	// 	var li = $(event.currentTarget).parent("li");
-	// 	if (!$(".mobile-nav").is(":visible")) {
-	// 		$(li).find(".mn-sub:first").stop(true, true).fadeIn("fast");
-	// 	}
-	// },
-	// 'mouseleave .mn-has-sub': function (event) {
-	// 	var li = $(event.currentTarget).parent("li");
-	// 	if (!$(".mobile-nav").is(":visible")) {
-	// 		$(li).find(".mn-sub:first").stop(true, true).delay(100).fadeOut("fast");
-	// 	}
-	// }
+	}
 });
 
 Template.appHeader.helpers({
