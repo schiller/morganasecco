@@ -1,12 +1,67 @@
 <template name='postsAdmin'>
-	<h1>Posts Admin</h1>
-	<div>
-		<ul>
-			{{#each posts}}
-				<li class="col-xs-12">
+	<!-- Head Section -->
+	<section class="small-section bg-dark" data-background="images/full-width-images/section-bg-2.jpg">
+		<div class="relative container align-left">
+			<div class="row">
+				<div class="col-md-8">
+					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Posts Admin</h1>
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="mod-breadcrumbs font-alt align-right">
+						<a href="/">Home</a>&nbsp;/&nbsp;<span>Posts Admin</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Head Section -->
+
+	<!-- Search Section -->
+	<section class="small-section">
+		<div class="container relative">
+
+			<!-- Search -->
+			<form class="form-inline form" role="form">
+				<div class="search-wrap">
+					<button class="search-button animate" type="submit" title="Start Search">
+						<i class="fa fa-search"></i>
+					</button>
+					<input type="text" class="form-control search-field" placeholder="Search...">
+				</div>
+			</form>
+			<!-- End Search -->
+
+		</div>
+	</section>
+	<!-- End Search Section -->
+
+	<!-- Divider -->
+	<hr class="mt-0 mb-0"/>
+	<!-- End Divider -->
+
+	<!-- Section -->
+	<section class="page-section">
+		<div class="container relative">
+			<div class="row masonry">
+				{{#each posts}}
+				<div class="col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
 					{{> postThumbnailAdmin}}
-				</li>
-			{{/each}}
-		</ul>
-	</div>
+				</div>
+				{{/each}}
+			</div>
+
+			<!-- Pagination -->
+			<div class="pagination">
+				<a href=""><i class="fa fa-angle-left"></i></a>
+				<a href="" class="active">1</a>
+				<a href="">2</a>
+				<a href="">3</a>
+				<a class="no-active">...</a>
+				<a href="">9</a>
+				<a href=""><i class="fa fa-angle-right"></i></a>
+			</div>
+			<!-- End Pagination -->
+		</div>
+	</section>
+	<!-- End Section -->
 </template>

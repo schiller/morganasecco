@@ -1,21 +1,21 @@
 <template name="postThumbnail">
-  <div class="post-prev-img">
-	    <a href="{{pathFor route='postShow' data=getPost}}"><img src="{{cover.url}}" alt="{{cover.title}}" /></a>
+	<div class="post-prev-img">
+		<a href="{{pathFor route='postShow' data=getPost}}"><img src="{{cover.url}}" alt="{{cover.title}}" /></a>
 	</div>
 
 	<div class="post-prev-title font-alt">
-	    <a href="{{pathFor route='postShow' data=getPost}}">{{title}}</a>
+		<a href="{{pathFor route='postShow' data=getPost}}">{{title}}</a>
 	</div>
 
 	<div class="post-prev-info font-alt">
-	    <a href="{{pathFor route='postShow' data=getPost}}">Morgana Secco</a> | 10 December
+		<a href="{{pathFor route='postShow' data=getPost}}">Morgana Secco</a> | 10 December
 	</div>
 
 	<div class="post-prev-text">
-	    {{text}}
+		{{text}}
 	</div>
 
 	<div class="post-prev-more">
-	    <a href="{{pathFor route='postShow' data=getPost}}" class="btn btn-mod btn-gray btn-round">Veja Mais <i class="fa fa-angle-right"></i></a>
+		<a href="{{pathFor route='postShow' data=getPost}}" class="btn btn-mod btn-gray btn-round">Veja Mais <i class="fa fa-angle-right"></i></a>
 	</div>
 </template>
