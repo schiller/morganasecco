@@ -1,42 +1,44 @@
 <template name="appHeader">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Morgana Secco</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          {{#each dynamicMenuItems}}
-          <li class="{{isPostActive _id}}"><a href="/posts/{{_id}}" class="hidden-xs">{{title}}</a></li>
-          <li class="{{isPostActive _id}}">
-            <a href="/posts/{{_id}}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{title}}</a>
-          </li>
-          {{/each}}
-          {{#each staticMenuItems}}
-          <li class="{{isActive route}}"><a href="{{ route }}" class="hidden-xs">{{text}}</a></li>
-          <li class="{{isActive route}}">
-            <a href="{{ route }}" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">{{text}}</a>
-          </li>
-          {{/each}}
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          {{> loginButtons}}
-          {{#if isInRole 'admin'}}
-          <li><a href="/admin" class="hidden-xs"><i class="glyphicon glyphicon-cog"></i></a></li>
-          <li>
-            <a href="/admin" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">
-              <i class="glyphicon glyphicon-cog"></i>
-            </a>
-          </li>
-          {{/if}}
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
+    <!-- <nav class="main-nav transparent stick-fixed"> -->
+    <nav class="main-nav transparent js-stick">
+        <div class="full-wrapper relative clearfix">
+            <!-- Logo ( * your text or image into link tag *) -->
+            <div class="nav-logo-wrap local-scroll">
+                <a href="/" class="logo">
+                    <img src="images/morgana_marca_preto.png" alt="Morgana Secco Fotografia" />
+                </a>
+            </div>
+            <div class="mobile-nav">
+                <i class="fa fa-bars"></i>
+            </div>
+
+            <!-- Main Menu -->
+            <div class="inner-nav desktop-nav">
+                <ul class="clearlist">
+                    <!-- Item With Sub -->
+                    <li>
+                    <a href="#" class="mn-has-sub">Portfolio <i class="fa fa-angle-down"></i></a>
+                        <!-- Sub -->
+                        <ul class="mn-sub">
+                            {{#each dynamicMenuItems}}
+                            <li>
+                                <a href="/posts/{{_id}}" class="{{isPostActive _id}}">{{title}}</a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        <!-- End Sub -->
+                    </li>
+                    <!-- End Item With Sub -->
+
+                    {{#each staticMenuItems}}
+                    <li>
+                        <a href="{{ route }}" class="{{isActive route}}">{{text}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <!-- End Main Menu -->
+
+        </div>
+    </nav>
 </template>

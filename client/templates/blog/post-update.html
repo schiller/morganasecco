@@ -1,14 +1,78 @@
 <template name='postUpdate'>
-	<h1>Post Update</h1>
-	{{#autoForm collection="Posts" doc=this id="updatePost" type="update"}}
-	<fieldset>
-		{{> afQuickField name='title'}}
-		{{> afQuickField name='text' rows=6}}
-		{{> afQuickField name='published'}}
-		{{> afQuickField name='featured'}}
-	</fieldset>
-	<button type="submit" class="btn btn-primary">Salvar</button>
-	{{/autoForm}}
-	<hr/>
-	{{> galleryManagePhotos this}}
+
+	<!-- Head Section -->
+	<section class="small-section bg-dark" data-background="images/full-width-images/section-bg-2.jpg">
+		<div class="relative container align-left">
+			<div class="row">
+				<div class="col-md-8">
+					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Post Update</h1>
+				</div>
+				<div class="col-md-4 mt-30">
+					<div class="mod-breadcrumbs font-alt align-right">
+						<a href="/">Home</a>&nbsp;/&nbsp;<a href="{{pathFor route='postsAdmin'}}">Admin</a>&nbsp;/&nbsp;<span>Post Update</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Head Section -->
+
+	<!-- Page Section -->
+	<section class="page-section" id="contact">
+		<div class="container relative">
+
+			<!-- Contact Form -->                            
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+
+					{{#autoForm collection="Posts" doc=this id="updatePost" type="update" class="form"}}
+					<div class="clearfix">
+
+						<div class="form-group">
+							{{> afQuickField name="title" class="input-md round form-control"}}
+						</div>
+
+						<div class="form-group">
+							{{> afQuickField name="text" rows=6 class="input-md round form-control"}}
+						</div>
+
+						<div class="form-group">
+							{{> afQuickField name="published" class="input-md round" label=false}}
+						</div>
+
+						<div class="form-group">
+							{{> afQuickField name="featured" class="input-md round" label=false}}
+						</div>
+
+						<div class="form-group">
+							{{> afQuickField name="home" class="input-md round" label=false}}
+						</div>
+
+					</div>
+
+					<div class="clearfix">
+						<div class="cf-left-col">
+							<div class="form-tip pt-20"></div>
+						</div>
+						<div class="cf-right-col">
+							<div class="align-right pt-10">
+								<button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">Salvar</button>
+							</div>
+						</div>
+					</div>
+
+					<div id="result"></div>
+
+					{{/autoForm}}
+
+					<hr/>
+
+					{{> galleryManagePhotos this}}
+
+				</div>
+			</div>
+
+		</div>
+	</section>
+	<!-- End Page Section -->
 </template>

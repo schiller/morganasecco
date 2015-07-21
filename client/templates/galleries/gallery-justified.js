@@ -1,4 +1,4 @@
-pageLimit = 10;
+pageLimit = 50;
 
 incrementLimit = function(template, inc) {
 	inc = typeof inc !== 'undefined' ? inc : pageLimit;
@@ -27,6 +27,7 @@ Template.galleryJustified.onRendered(function(){
 	self.$("#justified-gallery").justifiedGallery({
 		rowHeight : rowHeight,
 		margins : margins,
+		captions: false,
 		rel: rel
 	}).on('jg.complete', function () {
 		self.$(this).find('a').colorbox({
@@ -45,6 +46,7 @@ Template.galleryJustified.onRendered(function(){
 			self.$("#justified-gallery").justifiedGallery({
 				rowHeight : rowHeight,
 				margins : margins,
+				captions: false,
 				rel: rel
 			}).on('jg.complete', function () {
 				self.$(this).find('a').colorbox({
