@@ -1,5 +1,5 @@
 Template.contact.helpers({
-  contactFormSchema: function() {
-    return Schemas.Contact;
-  }
+	contactFormSchema: function() {
+		return Schemas.Contact;
+	}
 });

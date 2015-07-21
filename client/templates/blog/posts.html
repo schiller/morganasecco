@@ -11,7 +11,7 @@
 				</div>
 				<div class="col-md-4 mt-30">
 					<div class="mod-breadcrumbs font-alt align-right">
-						<a href="#">Home</a>&nbsp;/&nbsp;<a href="#">Blog</a>&nbsp;/&nbsp;<span>Masonry</span>
+						<a href="#">Home</a>&nbsp;/&nbsp;<span>Blog</span>
 					</div>
 				</div>
 			</div>
@@ -24,12 +24,12 @@
 		<div class="container relative">
 
 			<!-- Search -->
-			<form class="form-inline form" role="form">
+			<form id="post-search-form" class="form-inline form" role="form">
 				<div class="search-wrap">
 					<button class="search-button animate" type="submit" title="Start Search">
 						<i class="fa fa-search"></i>
 					</button>
-					<input type="text" class="form-control search-field" placeholder="Search...">
+					<input id="post-search-term" name="post-search-term" type="text" class="form-control search-field" placeholder="Search...">
 				</div>
 			</form>
 			<!-- End Search -->
@@ -47,14 +47,14 @@
 		<div class="container relative">
 			<div class="row masonry">
 				{{#each posts}}
-				<div class="col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
+				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
 					{{> postThumbnail}}
 				</div>
 				{{/each}}
 			</div>
 
 			<!-- Pagination -->
-			<div class="pagination">
+			<!-- <div class="pagination">
 				<a href=""><i class="fa fa-angle-left"></i></a>
 				<a href="" class="active">1</a>
 				<a href="">2</a>
@@ -62,7 +62,7 @@
 				<a class="no-active">...</a>
 				<a href="">9</a>
 				<a href=""><i class="fa fa-angle-right"></i></a>
-			</div>
+			</div> -->
 			<!-- End Pagination -->
 		</div>
 	</section>

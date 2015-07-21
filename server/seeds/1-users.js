@@ -3,7 +3,7 @@ Meteor.startup(function () {
   if (Meteor.users.find().count() === 0) {
     var users = [
     {name:"Normal User",email:"normal@example.com",roles:[]},
-    {name:"Admin User",email:"admin@example.com",roles:['admin']}
+    {name:"Morgana Secco",email:"morganasecco@morganasecco.com.br",roles:['admin']}
     ];
 
     _.each(users, function (user) {
@@ -11,7 +11,7 @@ Meteor.startup(function () {
 
       id = Accounts.createUser({
         email: user.email,
-        password: "1234",
+        password: "abc123*!",
         profile: { name: user.name }
       });
 

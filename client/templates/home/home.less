@@ -1,3 +1,5 @@
+@import "/client/lib/bootstrap/custom.bootstrap.import.less";
+
 .home-margin {
   margin-top: 10%;
   margin-bottom: 10%;
@@ -15,4 +17,12 @@
   // background: url(images/morgana_marca_preto.jpg) no-repeat center center fixed;
   background-size: cover;
   // background-size: contain;
+}
+
+.home-wrapper {
+  margin-bottom: 40px;
+
+  @media (max-width: @grid-float-breakpoint-max) {
+    margin-bottom: 20px;
+  }
 }
