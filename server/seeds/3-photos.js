@@ -6,17 +6,20 @@ Meteor.startup(function () {
     var data = [
     {
       title: "Foto de Família",
-      url: "http://dummyimage.com/300x200/aaa/ffb.jpg",
+      urlLarge: "http://dummyimage.com/300x200/aaa/ffb.jpg",
+      urlThumb: "http://dummyimage.com/300x200/aaa/ffb.jpg",
       postId: post._id
     },
     {
       title: "Foto de Família",
-      url: "http://dummyimage.com/300x200/b8f/ffb.jpg",
+      urlLarge: "http://dummyimage.com/300x200/b8f/ffb.jpg",
+      urlThumb: "http://dummyimage.com/300x200/aaa/ffb.jpg",
       postId: post._id
     },
     {
       title: "Foto de Família",
-      url: "http://dummyimage.com/300x200/8ff/ffc.jpg",
+      urlLarge: "http://dummyimage.com/300x200/8ff/ffc.jpg",
+      urlThumb: "http://dummyimage.com/300x200/aaa/ffb.jpg",
       postId: post._id
     }
     ];
@@ -24,7 +27,8 @@ Meteor.startup(function () {
     _.each(data, function(photo) {
       var photo_id = Photos.insert({
         title: photo.title,
-        url: photo.url,
+        urlLarge: photo.urlLarge,
+        urlThumb: photo.urlThumb,
         postId: photo.postId
       });
     });
