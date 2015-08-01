@@ -62,46 +62,12 @@ Template.appHeader.onRendered(function () {
 	});  
 });
 
-Template.appHeader.events({
-	// 'click .mobile-nav': function () {
-	// 	if ($(".desktop-nav").hasClass("js-opened")) {
-	// 		$(".desktop-nav").slideUp("slow", "easeOutExpo", function () {
-	// 			$(".desktop-nav").removeAttr("style");
-	// 		}).removeClass("js-opened");
-	// 		$(this).removeClass("active");
-	// 	}
-	// 	else {
-	// 		$(".desktop-nav").slideDown("slow", "easeOutQuart").addClass("js-opened");
-	// 		$(this).addClass("active");
-	// 	}
-	// 	return false;
-	// },
-	// 'click .mn-has-sub': function (event) {
-	// 	var target = event.currentTarget;
-	// 	if($(".mobile-nav").is(":visible")) {
-	// 		var mnThisLi = $(target).parent("li:first");
-	// 		if (mnThisLi.hasClass("js-opened")) {
-	// 			mnThisLi.find(".mn-sub:first").slideUp(function(){
-	// 				mnThisLi.removeClass("js-opened");
-	// 				mnThisLi.find(".mn-has-sub").find(".fa:first").removeClass("fa-angle-up").addClass("fa-angle-down");
-	// 			});
-	// 		}
-	// 		else {
-	// 			$(target).find(".fa:first").removeClass("fa-angle-down").addClass("fa-angle-up");
-	// 			mnThisLi.addClass("js-opened");
-	// 			mnThisLi.find(".mn-sub:first").slideDown();
-	// 		}
-	// 	}
-
-	// 	return false;
-	// }
-});
-
 Template.appHeader.helpers({
 	staticMenuItems: function () {
 		var items = [
 		{text: 'Posts', route: '/posts'},
-		{text: 'Contato', route: '/contact'}];
+		{text: 'Contato', route: '/contact'},
+		{text: 'Sobre Mim', route: '/about'}];
 
 		if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
 			items.push({text: 'Posts Admin', route: '/posts-admin'});
