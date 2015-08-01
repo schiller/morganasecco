@@ -28,9 +28,10 @@ Meteor.publishComposite('posts', function (options) {
 	return {
 		find: function () {
 			var query = {};
-			if (!Roles.userIsInRole(this.userId, 'admin')) {
-				query.published = true;
-			}
+			query.published = true;
+			query.home = { '$ne': true };
+			query.featured = { '$ne': true };
+			//single post?
 			if (options.postId) {query._id = options.postId;}
 			return Posts.find(query);
 		},

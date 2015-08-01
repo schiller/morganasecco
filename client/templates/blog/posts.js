@@ -1,10 +1,10 @@
-// Template.posts.onRendered(function () {
-// 	(function ($) {
-// 		$(".masonry").imagesLoaded(function () {
-// 			$(".masonry").masonry();
-// 		});
-// 	})(jQuery);
-// });
+Template.posts.onRendered(function () {
+	(function ($) {
+		$(".masonry").imagesLoaded(function () {
+			$(".masonry").masonry();
+		});
+	})(jQuery);
+});
 
 Template.posts.events({
 	"submit #post-search-form": function (event, template) {
