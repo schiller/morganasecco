@@ -1,13 +1,17 @@
 Template.photoJustified.onRendered(function () {
-	$("#justified-gallery")
-	.justifiedGallery('norewind')
-	.on('jg.complete', function () {
-		self.$(this).find('a').colorbox({
-			maxWidth : maxWidth,
-			maxHeight : maxHeight,
-			opacity : opacity,
-			transition : transition,
-			current : current
-		});
+	var maxWidth = '100%';
+	var	maxHeight = '100%';
+	var opacity = 0.9;
+	var transition = 'elastic';
+	var current = '';
+
+	$("#justified-gallery").find('a').colorbox({
+		maxWidth : maxWidth,
+		maxHeight : maxHeight,
+		opacity : opacity,
+		transition : transition,
+		current : current
 	});
+
+	$("#justified-gallery").justifiedGallery('norewind');
 });
