@@ -65,7 +65,7 @@ Template.galleryJustified.helpers({
 	photos: function () {
 		var limit = Template.instance().pageLimit.get();
 		if (this._id) {
-			return Photos.find({postId: this._id}, { limit: limit });
+			return Photos.find({postId: this._id}, { limit: limit, sort: {order: 1}});
 		} else {
 			// return Photos.find({}, { limit: limit });
 			Router.go('/');

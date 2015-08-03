@@ -1,7 +1,3 @@
-.photo-thumbnail {
-	cursor: pointer;
-}
-
 .photo-check {
 	display: none;
 	position: absolute;
@@ -9,4 +5,22 @@
 	left: 18px;
 	color: lime;
 	text-shadow: 1px 1px 1px black;
+}
+
+ul#sortable {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+
+	li {
+		height: 96px;
+		width: 96px;
+		margin: 3px;
+		float: left;
+		cursor: pointer;
+	}
+
+	li.selected {
+		box-shadow: 0px 0px 5px 1px red;
+	}
 }
