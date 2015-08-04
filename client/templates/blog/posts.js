@@ -9,12 +9,12 @@ Template.posts.onRendered(function () {
 		var photosCount = Photos.find().count();
 
 		if (count > 0) {
-			self.$(".masonry").imagesLoaded(function () {
+			self.$(".masonry").imagesLoaded().progress(function () {
 				setTimeout(function () {
 					self.$(".masonry").masonry();
 				}, 200);
-			});	
-		}   
+			});			
+		} 
 	});
 });
 

@@ -2,8 +2,8 @@ Template.postsAdmin.onRendered(function () {
 	Tracker.autorun(function () {
 		var count = Photos.find().count();
 
-		if (count > 0) {			
-			self.$(".masonry").imagesLoaded(function () {
+		if (count > 0) {
+			self.$(".masonry").imagesLoaded().progress(function () {
 				setTimeout(function () {
 					self.$(".masonry").masonry();
 				}, 200);
