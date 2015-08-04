@@ -6,6 +6,8 @@ Template.posts.onRendered(function () {
 			featured: { '$ne': true }
 		}).count();
 
+		var photosCount = Photos.find().count();
+
 		if (count > 0) {
 			self.$(".masonry").imagesLoaded(function () {
 				$(".masonry").masonry();
