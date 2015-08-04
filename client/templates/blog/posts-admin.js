@@ -1,9 +1,13 @@
 Template.postsAdmin.onRendered(function () {
-	(function ($) {
-		$(".masonry").imagesLoaded(function () {
-			$(".masonry").masonry();
-		});
-	})(jQuery);
+	Tracker.autorun(function () {
+		var count = Posts.find().count();
+
+		if (count > 0) {
+			self.$(".masonry").imagesLoaded(function () {
+				$(".masonry").masonry();
+			});
+		}    
+	});
 });
 
 Template.postsAdmin.events({

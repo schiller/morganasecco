@@ -1,9 +1,17 @@
 Template.posts.onRendered(function () {
-	(function ($) {
-		$(".masonry").imagesLoaded(function () {
-			$(".masonry").masonry();
-		});
-	})(jQuery);
+	Tracker.autorun(function () {
+		var count = Posts.find({
+			published: true,
+			home: { '$ne': true },
+			featured: { '$ne': true }
+		}).count();
+
+		if (count > 0) {
+			self.$(".masonry").imagesLoaded(function () {
+				$(".masonry").masonry();
+			});
+		}    
+	});
 });
 
 Template.posts.events({
