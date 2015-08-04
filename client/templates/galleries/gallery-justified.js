@@ -59,8 +59,6 @@ Template.galleryJustified.onRendered(function(){
 				});
 			});
 		}, 100);
-
-		// $("#justified-gallery").justifiedGallery('norewind');
 	});
 });
 

@@ -13,5 +13,5 @@ Template.photoJustified.onRendered(function () {
 		current : current
 	});
 
-	// $("#justified-gallery").justifiedGallery('norewind');
+	$("#justified-gallery").justifiedGallery('norewind');
 });

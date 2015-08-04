@@ -1,3 +1,5 @@
+sitemaps.config('rootUrl', 'http://morganasecco.com.br/');
+
 sitemaps.add('/sitemaps.xml', function() {
 	var homePosts = Posts.find({
 		published: true,
