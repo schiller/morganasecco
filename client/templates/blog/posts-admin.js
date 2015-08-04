@@ -2,12 +2,12 @@ Template.postsAdmin.onRendered(function () {
 	Tracker.autorun(function () {
 		var count = Photos.find().count();
 
-		if (count > 0) {
-			setTimeout(function () {
-				self.$(".masonry").imagesLoaded(function () {
-					$(".masonry").masonry();
-				});
-			}, 100);
+		if (count > 0) {			
+			self.$(".masonry").imagesLoaded(function () {
+				setTimeout(function () {
+					self.$(".masonry").masonry();
+				}, 200);
+			});			
 		}
 	});
 });

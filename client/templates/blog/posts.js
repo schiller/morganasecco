@@ -9,11 +9,11 @@ Template.posts.onRendered(function () {
 		var photosCount = Photos.find().count();
 
 		if (count > 0) {
-			setTimeout(function () {
-				self.$(".masonry").imagesLoaded(function () {
-					$(".masonry").masonry();
-				});
-			}, 100);
+			self.$(".masonry").imagesLoaded(function () {
+				setTimeout(function () {
+					self.$(".masonry").masonry();
+				}, 200);
+			});	
 		}   
 	});
 });
