@@ -1,4 +1,4 @@
-sitemaps.add('/mw_AllPages_sitemap.xml', function() {
+sitemaps.add('/sitemaps.xml', function() {
 	var homePosts = Posts.find({
 		published: true,
 		home: true 
