@@ -8,11 +8,13 @@ Template.posts.onRendered(function () {
 
 		var photosCount = Photos.find().count();
 
-		if (count > 0) {
+		Template.currentData();
+
+		setTimeout(function () {
 			self.$(".masonry").imagesLoaded(function () {
 				$(".masonry").masonry();
 			});
-		}    
+		}, 100);
 	});
 });
 

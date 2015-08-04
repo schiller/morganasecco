@@ -41,6 +41,7 @@ Template.galleryJustified.onRendered(function(){
 
 	this.autorun(function () {
 		Template.currentData();
+		Photos.find({postId: this._id}).count();
 
 		setTimeout(function () {
 			self.$("#justified-gallery").justifiedGallery({
@@ -58,6 +59,8 @@ Template.galleryJustified.onRendered(function(){
 				});
 			});
 		}, 100);
+
+		// $("#justified-gallery").justifiedGallery('norewind');
 	});
 });
 

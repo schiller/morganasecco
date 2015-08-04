@@ -1,12 +1,13 @@
 Template.postsAdmin.onRendered(function () {
 	Tracker.autorun(function () {
 		var count = Photos.find().count();
+		Template.currentData();
 
-		if (count > 0) {
+		setTimeout(function () {
 			self.$(".masonry").imagesLoaded(function () {
 				$(".masonry").masonry();
 			});
-		}    
+		}, 100);
 	});
 });
 
