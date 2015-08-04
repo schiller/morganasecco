@@ -8,13 +8,11 @@ Template.posts.onRendered(function () {
 
 		var photosCount = Photos.find().count();
 
-		Template.currentData();
-
-		setTimeout(function () {
+		if (count > 0) {
 			self.$(".masonry").imagesLoaded(function () {
 				$(".masonry").masonry();
 			});
-		}, 100);
+		}    
 	});
 });
 
@@ -25,6 +23,5 @@ Template.posts.events({
 		var searchTerm = event.target['post-search-term'].value;
 
 		// this.subscribe('posts', {postId: this.params._id});
-
 	}
 });

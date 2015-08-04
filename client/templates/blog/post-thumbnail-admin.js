@@ -1,9 +1,9 @@
 Template.postThumbnailAdmin.onRendered(function () {
-	(function ($) {
-		$(".masonry").imagesLoaded(function () {
-			$(".masonry").masonry();
-		});
-	})(jQuery);
+	// (function ($) {
+	// 	$(".masonry").imagesLoaded(function () {
+	// 		$(".masonry").masonry();
+	// 	});
+	// })(jQuery);
 });
 
 Template.postThumbnailAdmin.helpers({
