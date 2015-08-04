@@ -21,8 +21,11 @@ Template.fileUploader.events({
 				var uploaderLarge = new Slingshot.Upload("largePictures");
 				var uploaderThumb = new Slingshot.Upload("thumbnails");
 
-				var thumbHeight = 484;
-				var thumbWidth = 730;
+				// var thumbHeight = 484;
+				// var thumbWidth = 730;
+
+				var thumbHeight = 323;
+				var thumbWidth = 487;
 
 				Resizer.resize(file, {height: thumbHeight, width: thumbWidth, cropSquare: false}, function(error, thumb) {
 					if (error) {

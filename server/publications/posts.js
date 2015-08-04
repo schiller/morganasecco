@@ -30,7 +30,7 @@ Meteor.publishComposite('posts', function (options) {
 			var query = {};
 			query.published = true;
 			query.home = { '$ne': true };
-			query.featured = { '$ne': true };
+			// query.featured = { '$ne': true };
 			//single post?
 			if (options.postId) {query._id = options.postId;}
 			return Posts.find(query);
