@@ -41,6 +41,7 @@ Template.galleryJustified.onRendered(function(){
 
 	this.autorun(function () {
 		Template.currentData();
+		var count = Photos.find({postId: this._id}).count();
 
 		setTimeout(function () {
 			self.$("#justified-gallery").justifiedGallery({
@@ -58,28 +59,20 @@ Template.galleryJustified.onRendered(function(){
 				});
 			});
 		}, 100);
+
+		self.$("#justified-gallery").imagesLoaded().progress(function () {
+			setTimeout(function () {
+				$("#justified-gallery").find('a').colorbox({
+					maxWidth : maxWidth,
+					maxHeight : maxHeight,
+					opacity : opacity,
+					transition : transition,
+					current : current
+				});
+				$("#justified-gallery").justifiedGallery('norewind');
+			}, 200);
+		});
 	});
-
-	this.autorun(function () {
-		var count = Photos.find({postId: this._id}).count();
-
-		if (count > 0) {
-			self.$("#justified-gallery").imagesLoaded().progress(function () {
-				setTimeout(function () {
-					$("#justified-gallery").find('a').colorbox({
-						maxWidth : maxWidth,
-						maxHeight : maxHeight,
-						opacity : opacity,
-						transition : transition,
-						current : current
-					});
-					$("#justified-gallery").justifiedGallery('norewind');
-				}, 200);
-			});
-		}
-	});
-
-	
 });
 
 Template.galleryJustified.helpers({
