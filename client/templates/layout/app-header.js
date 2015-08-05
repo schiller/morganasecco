@@ -63,14 +63,16 @@ Template.appHeader.onRendered(function () {
 
 	//toggle mobile navbar
 	function toggleNavbar () {
-		if ($desktopNav.hasClass("js-opened")) {
-			$desktopNav.slideUp("slow", "easeOutExpo", function () {
-				$desktopNav.removeAttr("style");
-			}).removeClass("js-opened");
-			$(this).removeClass("active");
-		} else {
-			$desktopNav.slideDown("slow", "easeOutQuart").addClass("js-opened");
-			$(this).addClass("active");
+		if (!$mobileNav.is(":visible")) {
+			if ($desktopNav.hasClass("js-opened")) {
+				$desktopNav.slideUp("slow", "easeOutExpo", function () {
+					$desktopNav.removeAttr("style");
+				}).removeClass("js-opened");
+				$(this).removeClass("active");
+			} else {
+				$desktopNav.slideDown("slow", "easeOutQuart").addClass("js-opened");
+				$(this).addClass("active");
+			}
 		}
 
 		return false;
