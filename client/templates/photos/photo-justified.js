@@ -29,4 +29,8 @@ Template.photoJustified.onRendered(function () {
 	}
 
 	justify();
+
+	// $("#justified-gallery").imagesLoaded(function () {
+	// 	justify();
+	// });
 });

@@ -1,0 +1,3 @@
+Template.home.onCreated(function () {
+
+});
