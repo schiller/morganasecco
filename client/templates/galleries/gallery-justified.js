@@ -48,10 +48,8 @@ Template.galleryJustified.onRendered(function(){
 		justify();
 	});
 
-	this.autorun(function () {
-		self.$("#justified-gallery").imagesLoaded().progress(function () {
-			justify();
-		});
+	self.$("#justified-gallery").imagesLoaded().progress(function () {
+		justify();
 	});
 
 	// Tracker.autorun(function () {
