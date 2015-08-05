@@ -63,7 +63,7 @@ Template.appHeader.onRendered(function () {
 
 	//toggle mobile navbar
 	function toggleNavbar () {
-		if (!$mobileNav.is(":visible")) {
+		if ($mobileNav.is(":visible")) {
 			if ($desktopNav.hasClass("js-opened")) {
 				$desktopNav.slideUp("slow", "easeOutExpo", function () {
 					$desktopNav.removeAttr("style");
