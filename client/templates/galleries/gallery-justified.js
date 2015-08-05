@@ -48,6 +48,12 @@ Template.galleryJustified.onRendered(function(){
 		justify();
 	});
 
+	this.autorun(function () {
+		self.$("#justified-gallery").imagesLoaded().progress(function () {
+			justify();
+		});
+	});
+
 	// Tracker.autorun(function () {
 	// 	Template.currentData();
 	// 	var count = Photos.find({postId: this._id}).count();
