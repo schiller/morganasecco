@@ -7,7 +7,7 @@ Template.postsAdmin.onRendered(function () {
 				setTimeout(function () {
 					self.$(".masonry").masonry();
 				}, 200);
-			});			
+			});
 		}
 	});
 });
