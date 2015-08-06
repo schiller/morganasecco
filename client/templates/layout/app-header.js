@@ -95,7 +95,7 @@ Template.appHeader.onRendered(function () {
 Template.appHeader.helpers({
 	staticMenuItems: function () {
 		var items = [
-		{text: 'Posts', route: '/posts'},
+		{text: 'Galerias', route: '/posts'},
 		{text: 'Contato', route: '/contact'},
 		{text: 'Sobre Mim', route: '/about'}];
 
