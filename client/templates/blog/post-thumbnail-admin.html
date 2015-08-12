@@ -1,7 +1,9 @@
 <template name="postThumbnailAdmin">
 
 	<div class="post-prev-img">
-		<a href="{{pathFor route='postUpdate' data=getPost}}"><img src="{{cover.urlThumb}}" alt="{{cover.title}}" /></a>
+		<a href="{{pathFor route='postUpdate' data=getPost}}">
+			<img src="{{cover.urlThumb}}" alt="{{cover.title}}" />
+		</a>
 	</div>
 
 	<div class="post-prev-title font-alt">

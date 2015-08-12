@@ -1,2 +1,2 @@
 # morganasecco
-Morgana Secco's website
+Morgana Secco's photography website

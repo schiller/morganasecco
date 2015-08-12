@@ -95,12 +95,12 @@ Template.appHeader.onRendered(function () {
 Template.appHeader.helpers({
 	staticMenuItems: function () {
 		var items = [
-		{text: 'Galerias', route: '/posts'},
-		{text: 'Contato', route: '/contact'},
-		{text: 'Sobre Mim', route: '/about'}];
+		{text: 'Galerias', route: '/galerias'},
+		{text: 'Contato', route: '/contato'},
+		{text: 'Sobre Mim', route: '/sobre'}];
 
 		if (Roles.userIsInRole(Meteor.userId(), 'admin')) {
-			items.push({text: 'Posts Admin', route: '/posts-admin'});
+			items.push({text: 'Posts Admin', route: '/galerias-admin'});
 		}
 
 		return items;
@@ -128,7 +128,7 @@ Template.appHeader.helpers({
 		// } else {
 		// 	return "";
 		// }
-		if (currentRoute && currentRoute.originalUrl === "/posts/" + id) {
+		if (currentRoute && currentRoute.originalUrl === "/galerias/" + id) {
 			return "active";
 		} else {
 			return "";

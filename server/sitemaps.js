@@ -22,9 +22,9 @@ sitemaps.add('/sitemaps.xml', function() {
 
 	var out = [
 	{ page: '/', images: homePhotosArray},
-	{ page: '/contact'},
-	{ page: '/about'},
-	{ page: '/posts'}
+	{ page: '/contato'},
+	{ page: '/sobre'},
+	{ page: '/galerias'}
 	];
 
 	var posts = Posts.find({
@@ -45,7 +45,7 @@ sitemaps.add('/sitemaps.xml', function() {
 		});
 
 		out.push({
-			page: 'posts/' + post._id,
+			page: '/galerias/' + post._id,
 			lastmod: post.updatedAt,
 			images: photosArray
 		});

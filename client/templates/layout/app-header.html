@@ -22,7 +22,7 @@
                         <ul class="mn-sub">
                             {{#each dynamicMenuItems}}
                             <li>
-                                <a href="/posts/{{_id}}" class="{{isPostActive _id}}">{{title}}</a>
+                                <a href="{{pathFor route='postShow' data=getPost}}" class="{{isPostActive _id}}">{{title}}</a>
                             </li>
                             {{/each}}
                         </ul>
