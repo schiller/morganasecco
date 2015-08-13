@@ -38,11 +38,11 @@ Meteor.startup(function () {
     });
   }
 
-  var posts = Posts.find().fetch();
-  _.each(posts, function (item) {
-    var post = item;
-    if (!post.slug) {
-      Posts.update(post._id, {$set: {slug: sluggify(post.title)}});
-    }
-  });
+  // var posts = Posts.find().fetch();
+  // _.each(posts, function (item) {
+  //   var post = item;
+  //   if (!post.slug) {
+  //     Posts.update(post._id, {$set: {slug: sluggify(post.title)}});
+  //   }
+  // });
 });
