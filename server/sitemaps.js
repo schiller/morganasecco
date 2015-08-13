@@ -45,7 +45,7 @@ sitemaps.add('/sitemaps.xml', function() {
 		});
 
 		out.push({
-			page: '/galerias/' + post._id,
+			page: '/galerias/' + post.slug,
 			lastmod: post.updatedAt,
 			images: photosArray
 		});

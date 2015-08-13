@@ -32,13 +32,13 @@ Meteor.publishComposite('posts', function (options) {
 			query.home = { '$ne': true };
 			// query.featured = { '$ne': true };
 			//single post?
-			if (options.postId) {query._id = options.postId;}
+			if (options.slug) {query.slug = options.slug;}
 			return Posts.find(query);
 		},
 		children: [
 		{
 			find: function (post) {
-				if (options.postId) {
+				if (options.slug) {
 					return Photos.find({postId: post._id});
 				} else {
 					return Photos.find({_id: post.coverId});
@@ -56,13 +56,13 @@ Meteor.publishComposite('postsAdmin', function (options) {
 				return this.stop();
 			}
 			var query = {};
-			if (options.postId) {query._id = options.postId;}
+			if (options.slug) {query.slug = options.slug;}
 			return Posts.find(query);
 		},
 		children: [
 		{
 			find: function (post) {
-				if (options.postId) {
+				if (options.slug) {
 					return Photos.find({postId: post._id});
 				} else {
 					return Photos.find({_id: post.coverId});

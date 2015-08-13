@@ -121,14 +121,14 @@ Template.appHeader.helpers({
 			return "";
 		}
 	},
-	isPostActive: function (id) {
+	isPostActive: function (slug) {
 		var currentRoute = Router.current();
 		// if (currentRoute && currentRoute.route.getName() === route) {
 		// 	return "active";
 		// } else {
 		// 	return "";
 		// }
-		if (currentRoute && currentRoute.originalUrl === "/galerias/" + id) {
+		if (currentRoute && currentRoute.originalUrl === "/galerias/" + slug) {
 			return "active";
 		} else {
 			return "";
