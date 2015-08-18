@@ -10,9 +10,19 @@
 					</div>
 				</div>
 				<div class="col-md-4 mt-30">
-					<div class="mod-breadcrumbs font-alt align-right">
-						<a href="/">Home</a>&nbsp;/&nbsp;<span>Galerias</span>
-					</div>
+					<ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
+						<li property="itemListElement" typeof="ListItem">
+							<a property="item" typeof="WebPage"	href="/">
+							<span property="name">Home</span></a>
+							<meta property="position" content="1">
+						</li>
+						&nbsp;/&nbsp;
+						<li property="itemListElement" typeof="ListItem">
+							<a property="item" typeof="WebPage"	href="/galerias">
+							<span property="name">Galerias</span></a>
+							<meta property="position" content="2">
+						</li>
+					</ol>
 				</div>
 			</div>
 		</div>
@@ -57,4 +67,26 @@
 		</div>
 	</section>
 	<!-- End Section -->
+
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "Blog",
+			"headline": "Galerias",
+			"description": "Últimos trabalhos",
+			"blogPost": [
+			{{#each posts}}
+			{
+				"@type": "BlogPosting",
+				"headline": "{{title}}",
+				"description": "{{text}}",
+				"datePublished": "{{createdAt}}"
+			},
+			{{/each}}
+			],
+			"datePublished": "{{createdAt}}"
+		}
+	</script>
+	<!-- End Structured Data -->
 </template>

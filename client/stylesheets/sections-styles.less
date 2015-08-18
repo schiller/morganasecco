@@ -3,7 +3,8 @@
  */
 
 .page-section,
-.small-section{
+.small-section,
+.mini-section{
 	width: 100%;
 	display: block;	
 	position: relative;
@@ -25,6 +26,9 @@
 }
 .small-section{
 	padding: 70px 0;
+}
+.mini-section {
+	padding: 0;
 }
 .small-title{
     padding: 0;
@@ -407,14 +411,20 @@
     -o-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
     -ms-transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
     transition: all 0.27s cubic-bezier(0.000, 0.000, 0.580, 1.000);
-}
-.mod-breadcrumbs span{
-    opacity: .65;
-}
-.mod-breadcrumbs a{
-    text-decoration: none;
 
+    li {
+    	display: inline-block;
+    }
+
+    span {
+	    opacity: .65;
+	}
+
+	a {
+		text-decoration: none;
+	}
 }
+
 .mod-breadcrumbs a:hover{
     text-decoration: none; 
 }
@@ -450,6 +460,7 @@
 .fixed-height-small{
     min-height: 600px;
 }
+
 
 
 /*

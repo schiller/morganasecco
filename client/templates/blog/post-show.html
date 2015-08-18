@@ -1,6 +1,30 @@
 <template name='postShow'>
+	<!-- Head Section -->
+	<section class="mini-section">
+		<div class="relative container align-left">
+			<div class="row">
+				<div class="col-md-offset-8 col-md-4 mt-30">
+					<ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
+						<li property="itemListElement" typeof="ListItem">
+							<a property="item" typeof="WebPage"	href="/">
+							<span property="name">Home</span></a>
+							<meta property="position" content="1">
+						</li>
+						&nbsp;/&nbsp;
+						<li property="itemListElement" typeof="ListItem">
+							<a property="item" typeof="WebPage"	href="/contato">
+							<span property="name">Post</span></a>
+							<meta property="position" content="2">
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Head Section -->
+
 	<!-- Section -->
-	<section class="page-section">
+	<section class="small-section">
 		<div class="container relative">                    
 			<div class="row">                        
 				<!-- Content -->
@@ -32,4 +56,22 @@
 		</div>
 	</section>
 	<!-- End Section -->
+
+	<!-- Structured Data -->
+	<script type="application/ld+json">
+		{
+			"@context": "http://schema.org",
+			"@type": "BlogPosting",
+			"headline": "{{title}}",
+			"description": "{{text}}",
+			"articleBody": "{{text}}",
+			"image": [
+			{{#each photos}}
+			"{{urlThumb}}",
+			{{/each}}
+			],
+			"datePublished": "{{createdAt}}"
+		}
+	</script>
+	<!-- End Structured Data -->
 </template>

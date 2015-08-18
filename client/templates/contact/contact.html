@@ -7,9 +7,19 @@
 					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Contato</h1>
 				</div>
 				<div class="col-md-4 mt-30">
-					<div class="mod-breadcrumbs font-alt align-right">
-						<a href="/">Home</a>&nbsp;/&nbsp;<span>Contato</span>
-					</div>
+					<ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
+						<li property="itemListElement" typeof="ListItem">
+							<a property="item" typeof="WebPage"	href="/">
+							<span property="name">Home</span></a>
+							<meta property="position" content="1">
+						</li>
+						&nbsp;/&nbsp;
+						<li property="itemListElement" typeof="ListItem">
+							<a property="item" typeof="WebPage"	href="/contato">
+							<span property="name">Contato</span></a>
+							<meta property="position" content="2">
+						</li>
+					</ol>
 				</div>
 			</div>
 		</div>
@@ -137,6 +147,15 @@
 	<script type="application/ld+json">
 		{
 			"@context" : "http://schema.org",
+			"@type" : "ContactPage",
+			"name" : "Morgana Secco Fotografia - Contato",
+			"url" : "http://morganasecco.com.br/contato"
+		}
+	</script>
+
+	<script type="application/ld+json">
+		{
+			"@context" : "http://schema.org",
 			"@type" : "Organization",
 			"name" : "Morgana Secco Fotografia",
 			"url" : "http://morganasecco.com.br",
@@ -154,5 +173,4 @@
 		}
 	</script>
 	<!-- End Structured Data -->
-
 </template>
