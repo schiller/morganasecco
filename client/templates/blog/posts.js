@@ -40,8 +40,12 @@ Template.posts.onCreated(function() {
 
 Template.posts.onRendered(function () {
   var self = this;
-  self.$('.masonry').imagesLoaded(function () {
-    self.$('.masonry').masonry();
+  self.autorun(() => {
+    if (Template.instance().subscriptionsReady()) {
+      self.$('.masonry').imagesLoaded(function () {
+        self.$('.masonry').masonry();
+      });
+    }
   });
 });
 

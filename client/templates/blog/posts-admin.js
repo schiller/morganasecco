@@ -7,8 +7,12 @@ Template.postsAdmin.onCreated(function() {
 
 Template.postsAdmin.onRendered(function () {
   var self = this;
-  self.$('.masonry').imagesLoaded(function () {
-    self.$('.masonry').masonry();
+  self.autorun(() => {
+    if (Template.instance().subscriptionsReady()) {
+      self.$('.masonry').imagesLoaded(function () {
+        self.$('.masonry').masonry();
+      });
+    }
   });
 });
 
