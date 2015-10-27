@@ -7,7 +7,7 @@ Template.postsAdmin.onCreated(function() {
 
 Template.postsAdmin.onRendered(function () {
   var self = this;
-  self.$('.masonry').imagesLoaded().progress(function () {
+  self.$('.masonry').imagesLoaded(function () {
     self.$('.masonry').masonry();
   });
 });

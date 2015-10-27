@@ -40,7 +40,7 @@ Template.posts.onCreated(function() {
 
 Template.posts.onRendered(function () {
   var self = this;
-  self.$('.masonry').imagesLoaded().progress(function () {
+  self.$('.masonry').imagesLoaded(function () {
     self.$('.masonry').masonry();
   });
 });
