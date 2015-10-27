@@ -1,27 +1,22 @@
 <template name="postThumbnailAdmin">
-
 	<div class="post-prev-img">
-		<a href="{{pathFor route='postUpdate' data=getPost}}">
-			<img src="{{cover.urlThumb}}" alt="{{cover.title}}" />
-		</a>
+		<a href="{{pathFor 'postUpdate' slug=slug}}">
+			<img src="{{cover.urlThumb}}" alt="{{cover.title}}" /></a>
 	</div>
 
 	<div class="post-prev-title font-alt">
-		<a href="{{pathFor route='postUpdate' data=getPost}}">{{title}}</a>
+		<a href="{{pathFor 'postUpdate' slug=slug}}"> {{title}} </a>
 	</div>
 
 	<div class="post-prev-info font-alt">
-		<a href="{{pathFor route='postUpdate' data=getPost}}">Morgana Secco</a>
+		<a href="{{pathFor 'postUpdate' slug=slug}}"> Morgana Secco </a>
 	</div>
 
-	<div class="post-prev-text">
-		{{text}}
-	</div>
+	<div class="post-prev-text"> {{text}}	</div>
 
 	<div class="post-prev-more">
-		<a href="{{pathFor route='postUpdate' slug=slug}}" class="btn btn-mod btn-gray btn-round">
+		<a href="{{pathFor 'postUpdate' slug=slug}}" class="btn btn-mod btn-gray btn-round">
 			Editar <i class="fa fa-edit"></i>
 		</a>
 	</div>
-
 </template>

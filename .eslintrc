@@ -1,0 +1,22 @@
+{
+    "rules": {
+        "indent": [2, 2],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "no-unused-vars": 1,
+        "no-undef": 0
+    },
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "ecmaFeatures": {
+        "jsx": true,
+        "experimentalObjectRestSpread": true
+    },
+    "plugins": [
+        "react"
+    ]
+}

@@ -1,29 +1,59 @@
-Template.posts.onRendered(function () {
-	Tracker.autorun(function () {
-		var count = Posts.find({
-			published: true,
-			home: { '$ne': true },
-			featured: { '$ne': true }
-		}).count();
+Template.posts.onCreated(function() {
+  var self = this;
+  self.autorun(function() {
+    self.subscribe('posts', () => {
+      let posts = Posts.find({
+        published: true,
+        home: { '$ne': true },
+        featured: { '$ne': true }
+      }, {
+        sort: {createdAt: -1, updatedAt: -1}
+      }).fetch();
 
-		var photosCount = Photos.find().count();
+      let blog = {
+        '@context': 'http://schema.org',
+        '@type': 'Blog',
+        'headline': 'Galerias',
+        'description': 'Últimos trabalhos',
+        'blogPost': []};
 
-		if (count > 0) {
-			self.$(".masonry").imagesLoaded().progress(function () {
-				setTimeout(function () {
-					self.$(".masonry").masonry();
-				}, 200);
-			});			
-		} 
-	});
+      posts.forEach((post) => {
+        blog.blogPost.push({
+          '@type': 'BlogPosting',
+          'headline': post.title,
+          'description': post.text,
+          'datePublished': post.createdAt
+        });
+      });
+
+      DocHead.addLdJsonScript(blog);
+    });
+  });
+
+  DocHead.setTitle('Galerias | Fotografia Infantil, Gestante, Feminino | Porto Alegre, Lajeado | Morgana Secco Fotografia');
+
+  var ogTitle = {
+    property: 'og:title',
+    content: 'Galerias - Morgana Secco Fotografia'};
+  DocHead.addMeta(ogTitle);
 });
 
-Template.posts.events({
-	"submit #post-search-form": function (event, template) {
-		event.preventDefault();
+Template.posts.onRendered(function () {
+  var self = this;
+  self.$('.masonry').imagesLoaded().progress(function () {
+    self.$('.masonry').masonry();
+  });
+});
 
-		var searchTerm = event.target['post-search-term'].value;
-
-		// this.subscribe('posts', {postId: this.params._id});
-	}
+Template.posts.helpers({
+  posts() {
+    let posts = Posts.find({
+      published: true,
+      home: { '$ne': true },
+      featured: { '$ne': true }
+    }, {
+      sort: {createdAt: -1, updatedAt: -1}
+    }) || [];
+    return posts;
+  }
 });

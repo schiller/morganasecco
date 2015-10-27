@@ -1,92 +1,68 @@
 <template name='posts'>
-	<!-- Head Section -->
-	<section class="small-section bg-dark" data-background="/images/full-width-images/section-bg-2.jpg">
-		<div class="relative container align-left">
-			<div class="row">
-				<div class="col-md-8">
-					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Galerias</h1>
-					<div class="hs-line-4 font-alt">
-						Últimos trabalhos
-					</div>
-				</div>
-				<div class="col-md-4 mt-30">
-					<ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
-						<li property="itemListElement" typeof="ListItem">
-							<a property="item" typeof="WebPage"	href="/">
-							<span property="name">Home</span></a>
-							<meta property="position" content="1">
-						</li>
-						&nbsp;/&nbsp;
-						<li property="itemListElement" typeof="ListItem">
-							<a property="item" typeof="WebPage"	href="/galerias">
-							<span property="name">Galerias</span></a>
-							<meta property="position" content="2">
-						</li>
-					</ol>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Head Section -->
+  {{#if Template.subscriptionsReady}}
+  <!-- Head Section -->
+  <section class="small-section bg-dark" data-background="/images/full-width-images/section-bg-2.jpg">
+    <div class="relative container align-left">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"> Galerias </h1>
+          <div class="hs-line-4 font-alt">
+            Últimos trabalhos
+          </div>
+        </div>
+        <div class="col-md-4 mt-30">
+          <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
+            <li property="itemListElement" typeof="ListItem">
+              <a property="item" typeof="WebPage" href="/">
+              <span property="name"> Home </span></a>
+              <meta property="position" content="1">
+            </li>
+            &nbsp;/&nbsp;
+            <li property="itemListElement" typeof="ListItem">
+              <a property="item" typeof="WebPage" href="/galerias">
+              <span property="name"> Galerias </span></a>
+              <meta property="position" content="2">
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Head Section -->
 
-	<!-- Search Section -->
-	<section class="small-section">
-		<div class="container relative">
+  <!-- Search Section -->
+  <!-- <section class="small-section">
+    <div class="container relative">
+      <form id="post-search-form" class="form-inline form" role="form">
+        <div class="search-wrap">
+          <button class="search-button animate" type="submit" title="Start Search">
+            <i class="fa fa-search"></i>
+          </button>
+          <input id="post-search-term" name="post-search-term" type="text" class="form-control search-field" placeholder="Search...">
+        </div>
+      </form>
+    </div>
+  </section> -->
+  <!-- End Search Section -->
 
-			<!-- Search -->
-			<form id="post-search-form" class="form-inline form" role="form">
-				<div class="search-wrap">
-					<button class="search-button animate" type="submit" title="Start Search">
-						<i class="fa fa-search"></i>
-					</button>
-					<input id="post-search-term" name="post-search-term" type="text" class="form-control search-field" placeholder="Search...">
-				</div>
-			</form>
-			<!-- End Search -->
+  <hr class="mt-0 mb-0"/>
 
-		</div>
-	</section>
-	<!-- End Search Section -->
+  <!-- Section -->
+  <section class="small-section">
+    <div class="container relative">
 
-	<!-- Divider -->
-	<hr class="mt-0 mb-0"/>
-	<!-- End Divider -->
+      <div class="row masonry">
+        {{#each posts}}
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
+          {{> postThumbnail}}
+        </div>
+        {{/each}}
+      </div>
 
-	<!-- Section -->
-	<section class="small-section">
-		<div class="container relative">
-
-			<div class="row masonry">
-				{{#each posts}}
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 mb-60 mb-xs-40">
-					{{> postThumbnail}}
-				</div>
-				{{/each}}
-			</div>
-
-		</div>
-	</section>
-	<!-- End Section -->
-
-	<!-- Structured Data -->
-	<script type="application/ld+json">
-		{
-			"@context": "http://schema.org",
-			"@type": "Blog",
-			"headline": "Galerias",
-			"description": "Últimos trabalhos",
-			"blogPost": [
-			{{#each posts}}
-			{
-				"@type": "BlogPosting",
-				"headline": "{{title}}",
-				"description": "{{text}}",
-				"datePublished": "{{createdAt}}"
-			},
-			{{/each}}
-			],
-			"datePublished": "{{createdAt}}"
-		}
-	</script>
-	<!-- End Structured Data -->
+    </div>
+  </section>
+  <!-- End Section -->
+  {{else}}
+     {{> loading}}
+  {{/if}}
 </template>

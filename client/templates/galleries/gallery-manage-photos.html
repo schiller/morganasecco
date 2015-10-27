@@ -1,14 +1,16 @@
 <template name="galleryManagePhotos">
 	<form>
 		<div class="form-group">
-			{{> fileUploader postId = this._id}}
+			{{> fileUploader postId=this._id}}
 		</div>
 
 		<hr>
 
 		<div class="form-group">
-			<button id="delete-photos-btn" class="btn btn-danger"><i class="fa fa-trash"></i> Deletar Selecionados</button>
-			<button id="set-cover-btn" class="btn btn-primary"><i class="fa fa-file-image-o"></i> Selecionar como Capa</button>
+			<button id="delete-photos-btn" class="btn btn-danger">
+				<i class="fa fa-trash"></i> Deletar Selecionados</button>
+			<button id="set-cover-btn" class="btn btn-primary">
+				<i class="fa fa-file-image-o"></i> Selecionar como Capa</button>
 		</div>
 
 		<div>

@@ -1,17 +1,13 @@
 <template name="appLayout">
   <div id="appContainer">
-
     <div>
       {{> appHeader}}
     </div>
-
     <div id="appBody">
-      {{> yield}}          
+      {{>Template.dynamic template=content}}
     </div>
-
     <div>
       {{> appFooter}}
     </div>
-
   </div>
 </template>

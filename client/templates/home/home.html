@@ -1,18 +1,11 @@
 <template name="home">
-	<section class="container">
-		<div class="home-wrapper">
-			{{> galleryJustified this}}
-		</div>
-	</section>
-
-	<!-- Structured Data -->
-	<script type="application/ld+json">
-		{
-			"@context" : "http://schema.org",
-			"@type" : "WebPage",
-			"name" : "Morgana Secco Fotografia",
-			"url" : "http://morganasecco.com.br"
-		}
-	</script>
-	<!-- End Structured Data -->
+	{{#if Template.subscriptionsReady}}
+    <section class="container">
+			<div class="home-wrapper">
+				{{> galleryJustified post}}
+			</div>
+		</section>
+  {{else}}
+     {{> loading}}
+  {{/if}}
 </template>

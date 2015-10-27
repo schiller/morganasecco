@@ -1,15 +1,17 @@
 <template name='postUpdate'>
-
+	{{#if Template.subscriptionsReady}}
 	<!-- Head Section -->
 	<section class="small-section bg-dark" data-background="images/full-width-images/section-bg-2.jpg">
 		<div class="relative container align-left">
 			<div class="row">
 				<div class="col-md-8">
-					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0">Post Update</h1>
+					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0"> Post Update </h1>
 				</div>
 				<div class="col-md-4 mt-30">
 					<div class="mod-breadcrumbs font-alt align-right">
-						<a href="/">Home</a>&nbsp;/&nbsp;<a href="{{pathFor route='postsAdmin'}}">Admin</a>&nbsp;/&nbsp;<span>Post Update</span>
+						<a href="/"> Home </a>&nbsp;/&nbsp;
+						<a href="{{pathFor route='postsAdmin'}}"> Admin </a>&nbsp;/&nbsp;
+						<span> Post Update </span>
 					</div>
 				</div>
 			</div>
@@ -21,37 +23,30 @@
 	<section class="page-section" id="contact">
 		<div class="container relative">
 
-			<!-- Contact Form -->                            
+			<!-- Contact Form -->
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 
-					{{#autoForm collection="Posts" doc=this id="updatePost" type="update" class="form"}}
+					{{#autoForm collection="Posts" doc=post id="updatePost" type="update" class="form"}}
 					<div class="clearfix">
-
 						<div class="form-group">
 							{{> afQuickField name="title" class="input-md round form-control"}}
 						</div>
-
 						<div class="form-group">
 							{{> afQuickField name="slug" class="input-md round form-control"}}
 						</div>
-
 						<div class="form-group">
 							{{> afQuickField name="text" rows=6 class="input-md round form-control"}}
 						</div>
-
 						<div class="form-group">
 							{{> afQuickField name="published" class="input-md round" label=false}}
 						</div>
-
 						<div class="form-group">
 							{{> afQuickField name="featured" class="input-md round" label=false}}
 						</div>
-
 						<div class="form-group">
 							{{> afQuickField name="home" class="input-md round" label=false}}
 						</div>
-
 					</div>
 
 					<div class="clearfix">
@@ -76,7 +71,7 @@
 
 					<hr/>
 
-					{{> galleryManagePhotos this}}
+					{{> galleryManagePhotos post}}
 
 				</div>
 			</div>
@@ -84,4 +79,7 @@
 		</div>
 	</section>
 	<!-- End Page Section -->
+	{{else}}
+     {{> loading}}
+  {{/if}}
 </template>

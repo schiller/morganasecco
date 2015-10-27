@@ -1,23 +1,23 @@
 <template name="login">
 	<div class="docBounds">
 		{{#if currentUser}}
-		{{> dashboard}}
+			{{> dashboard}}
 		{{else}}
-		<h2>Login</h2>
-		<p>Ainda não se cadastrou? <a href="{{pathFor route='signup'}}">Fazer o cadastro</a></p>
+		<h2> Login </h2>
+		<p> Ainda não se cadastrou? <a href="{{pathFor 'signup'}}"> Fazer o cadastro </a></p>
 		<form>
 			<div class="form-group">
-				<label for="loginEmail">Endereço de email:</label>
+				<label for="loginEmail"> Endereço de email: </label>
 				<input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="nome@email.com">
 			</div>
 			<div class="form-group">
-				<label for="loginPassword">Senha:</label>
+				<label for="loginPassword"> Senha: </label>
 				<input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Senha">
 			</div>
 			<div class="form-group">
-				<button type="submit" class="btn btn-primary form-control">Sign in</button>
+				<button type="submit" class="btn btn-primary form-control"> Sign in </button>
 			</div>
-			<p><a href="{{pathFor route='signup'}}">Esqueceu a sua senha?</a></p>
+			<p><a href="{{pathFor 'signup'}}"> Esqueceu a sua senha? </a></p>
 		</form>
 		{{/if}}
 	</div>
