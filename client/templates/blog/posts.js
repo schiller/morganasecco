@@ -42,7 +42,7 @@ Template.posts.onRendered(function () {
   var self = this;
   self.autorun(() => {
     if (Template.instance().subscriptionsReady()) {
-      self.$('.masonry').imagesLoaded(function () {
+      self.$('.masonry').imagesLoaded(() => {
         self.$('.masonry').masonry();
       });
     }

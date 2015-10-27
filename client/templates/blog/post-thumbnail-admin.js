@@ -1,3 +1,9 @@
+Template.postThumbnailAdmin.onRendered(() => {
+  $('.masonry').imagesLoaded().progress(() => {
+    $('.masonry').masonry('layout');
+  });
+});
+
 Template.postThumbnailAdmin.helpers({
   cover: function () {
     var dummyImg = {
