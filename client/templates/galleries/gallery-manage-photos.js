@@ -43,7 +43,8 @@ Template.galleryManagePhotos.events({
       var selectedPhotos = Template.galleryManagePhotos.selectedPhotos();
 
       _.each(selectedPhotos, function (photoId) {
-        Photos.remove(photoId);
+        //Photos.remove(photoId);
+        Meteor.call('deletePhoto', photoId);
       });
     }
 

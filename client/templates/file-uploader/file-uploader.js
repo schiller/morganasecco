@@ -15,8 +15,9 @@ Template.fileUploader.events({
       var uploaders = [];
 
       _.map(files, function (file) {
-        var uploaderLarge = new Slingshot.Upload('largePictures');
-        var uploaderThumb = new Slingshot.Upload('thumbnails');
+        var metaContext = {postId: template.data.postId};
+        var uploaderLarge = new Slingshot.Upload('largePictures', metaContext);
+        var uploaderThumb = new Slingshot.Upload('thumbnails', metaContext);
 
         var thumbHeight = 400;
         var thumbWidth = 600;

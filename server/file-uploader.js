@@ -13,8 +13,8 @@ Slingshot.createDirective('largePictures', Slingshot.S3Storage, {
 
     return true;
   },
-  key: function (file) {
-    return 'large/' + new Date().getTime() + '_' + file.name;
+  key: function (file, metaContext) {
+    return metaContext.postId + '/large/' + new Date().getTime() + '_' + file.name;
   }
 });
 
@@ -33,7 +33,7 @@ Slingshot.createDirective('thumbnails', Slingshot.S3Storage, {
 
     return true;
   },
-  key: function (file) {
-    return 'thumb/' + new Date().getTime() + '_' + file.name;
+  key: function (file, metaContext) {
+    return metaContext.postId + '/thumb/' + new Date().getTime() + '_' + file.name;
   }
 });

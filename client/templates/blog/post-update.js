@@ -19,8 +19,9 @@ Template.postUpdate.events({
     var confirmDelete = confirm('Tem certeza que deseja deletar o post e todas suas fotos? Esta ação é irreversível.');
 
     if (confirmDelete === true) {
-      Meteor.call('removePhotos', this._id);
-      Posts.remove(this._id);
+      const post = Posts.findOne({slug: FlowRouter.getParam('slug')}) || {};
+      Meteor.call('removePhotos', post._id);
+      Posts.remove(post._id);
 
       FlowRouter.go('postsAdmin');
     }
