@@ -1,7 +1,7 @@
 <template name="postThumbnail">
   <div class="post-prev-img">
     <a href="{{pathFor 'postShow' slug=slug}}">
-      <img src="{{urlMicro}}"
+      <!-- <img src="{{urlMicro}}"
         srcset="{{cover.urlVeryLarge}} 1600w,
           {{cover.urlLarge}} 1024w,
           {{cover.urlMedium}} 640w,
@@ -10,6 +10,8 @@
           (min-width: 992px) 293px,
           (min-width: 1200px) 360px,
           50vw"
+        alt="{{cover.title}}" /> -->
+        <img src="{{urlMedium}}"
         alt="{{cover.title}}" />
     </a>
   </div>
