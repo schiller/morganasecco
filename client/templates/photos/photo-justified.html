@@ -1,3 +1,13 @@
 <template name="photoJustified">
-	<a href="{{urlLarge}}"><img alt="{{title}}" src="{{urlThumb}}"></a>
+  <a href="{{urlVeryLarge}}">
+    <img src="{{urlMicro}}"
+      srcset="{{urlVeryLarge}} 1600w,
+        {{urlLarge}} 1024w,
+        {{urlMedium}} 640w,
+        {{urlSmall}} 320w"
+      sizes="(min-width: 750px) 730px,
+        (min-width: 992px) 480px,
+        100vw"
+      alt="{{title}}"/>
+  </a>
 </template>

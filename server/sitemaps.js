@@ -13,7 +13,7 @@ sitemaps.add('/sitemaps.xml', function() {
 
     _.each(photos, function (photo) {
       var photoData = {};
-      photoData.loc = photo.urlThumb;
+      photoData.loc = photo.urlSmall;
       photoData.caption = photo.title;
       photoData.title = photo.title;
       homePhotosArray.push(photoData);
@@ -38,7 +38,7 @@ sitemaps.add('/sitemaps.xml', function() {
 
     _.each(photos, function (photo) {
       var photoData = {};
-      photoData.loc = photo.urlThumb;
+      photoData.loc = photo.urlSmall;
       photoData.caption = photo.title;
       photoData.title = photo.title;
       photosArray.push(photoData);

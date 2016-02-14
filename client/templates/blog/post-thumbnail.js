@@ -8,7 +8,10 @@ Template.postThumbnail.helpers({
   cover: function () {
     var dummyImg = {
       title: 'Não há fotos no post',
-      urlThumb: '/images/morgana_coracao_preto.jpg'
+      urlSmall: '/images/morgana_coracao_preto.jpg',
+      urlMedium: '/images/morgana_coracao_preto.jpg',
+      urlLarge: '/images/morgana_coracao_preto.jpg',
+      urlVeryLarge: '/images/morgana_coracao_preto.jpg'
     };
     return Photos.findOne({_id : this.coverId}) ||
       Photos.findOne({postId : this._id}) ||

@@ -30,16 +30,16 @@ Template.postShow.onCreated(function() {
       DocHead.addMeta(ogType);
 
       let blogPosting = {
-        "@context": "http://schema.org",
-        "@type": "BlogPosting",
-        "headline": post.title,
-        "description": post.text,
-        "articleBody": post.text,
-        "image": [],
-        "datePublished": post.createdAt};
+        '@context': 'http://schema.org',
+        '@type': 'BlogPosting',
+        'headline': post.title,
+        'description': post.text,
+        'articleBody': post.text,
+        'image': [],
+        'datePublished': post.createdAt};
 
       photos.forEach((photo) => {
-        blogPosting.image.push(photo.urlThumb);
+        blogPosting.image.push(photo.urlSmall);
       });
 
       DocHead.addLdJsonScript(blogPosting);

@@ -16,36 +16,82 @@ Template.fileUploader.events({
 
       _.map(files, function (file) {
         var metaContext = {postId: template.data.postId};
+        var uploaderVeryLarge = new Slingshot.Upload('veryLargePictures', metaContext);
         var uploaderLarge = new Slingshot.Upload('largePictures', metaContext);
-        var uploaderThumb = new Slingshot.Upload('thumbnails', metaContext);
+        var uploaderMedium = new Slingshot.Upload('mediumPictures', metaContext);
+        var uploaderSmall = new Slingshot.Upload('smallPictures', metaContext);
+        var uploaderMicro = new Slingshot.Upload('microPictures', metaContext);
 
-        var thumbHeight = 400;
-        var thumbWidth = 600;
+        var largeSize = 1024;
+        var mediumSize = 640;
+        var smallSize = 320;
+        var microSize = 12;
 
-        Resizer.resize(file, {height: thumbHeight, width: thumbWidth, cropSquare: false}, function(error, thumb) {
+        uploaderVeryLarge.send(file, function (error, urlVeryLarge) {
           if (error) {
-            sAlert.error('Error uploading' + error);
+            sAlert.error('Error uploading' + uploaderVeryLarge.xhr.response);
           } else {
-            uploaderThumb.send(thumb, function (error, urlThumb) {
+            Resizer.resize(file, {height: largeSize, width: largeSize, cropSquare: false}, function(error, largeImg) {
               if (error) {
-                sAlert.error('Error uploading' + uploaderThumb.xhr.response);
+                sAlert.error('Error uploading' + error);
               } else {
-                uploaderLarge.send(file, function (error, urlLarge) {
+                uploaderLarge.send(largeImg, function (error, urlLarge) {
                   if (error) {
                     sAlert.error('Error uploading' + uploaderLarge.xhr.response);
                   } else {
-                    Photos.insert({
-                      title: file.name,
-                      urlLarge: urlLarge,
-                      urlThumb: urlThumb,
-                      postId: template.data.postId
-                    },
-                    function (error, result) {
+                    Resizer.resize(file, {height: mediumSize, width: mediumSize, cropSquare: false}, function(error, mediumImg) {
                       if (error) {
-                        sAlert.error('Error inserting' + error);
+                        sAlert.error('Error uploading' + error);
+                      } else {
+                        uploaderMedium.send(mediumImg, function (error, urlMedium) {
+                          if (error) {
+                            sAlert.error('Error uploading' + uploaderMedium.xhr.response);
+                          } else {
+                            Resizer.resize(file, {height: smallSize, width: smallSize, cropSquare: false}, function(error, smallImg) {
+                              if (error) {
+                                sAlert.error('Error uploading' + error);
+                              } else {
+                                uploaderSmall.send(smallImg, function (error, urlSmall) {
+                                  if (error) {
+                                    sAlert.error('Error uploading' + uploaderSmall.xhr.response);
+                                  } else {
+                                    Resizer.resize(file, {height: microSize, width: microSize, cropSquare: false}, function(error, microImg) {
+                                      if (error) {
+                                        sAlert.error('Error uploading' + error);
+                                      } else {
+                                        uploaderMicro.send(microImg, function (error, urlMicro) {
+                                          if (error) {
+                                            sAlert.error('Error uploading' + uploaderMicro.xhr.response);
+                                          } else {
+                                            Photos.insert(
+                                              {
+                                                title: file.name,
+                                                urlVeryLarge: urlVeryLarge,
+                                                urlLarge: urlLarge,
+                                                urlMedium: urlMedium,
+                                                urlSmall: urlSmall,
+                                                urlMicro: urlMicro,
+                                                postId: template.data.postId
+                                              },
+                                              function (error, result) {
+                                                if (error) {
+                                                  sAlert.error('Error inserting' + error);
+                                                }
+                                                console.log('result: ' + result);
+                                              }
+                                            );
+                                          }
+                                        });
+                                      }
+                                    });
+                                  }
+                                });
+                              }
+                            });
+                          }
+                        });
                       }
-                    }
-                    );
+                    });
                   }
                 });
               }
@@ -53,8 +99,11 @@ Template.fileUploader.events({
           }
         });
 
+        uploaders.push(uploaderVeryLarge);
         uploaders.push(uploaderLarge);
-        uploaders.push(uploaderThumb);
+        uploaders.push(uploaderMedium);
+        uploaders.push(uploaderSmall);
+        uploaders.push(uploaderMicro);
       });
 
       template.uploaders.set(uploaders);
