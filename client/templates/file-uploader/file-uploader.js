@@ -25,7 +25,7 @@ Template.fileUploader.events({
         var largeSize = 1024;
         var mediumSize = 640;
         var smallSize = 320;
-        var microSize = 12;
+        var microSize = 12.5;
 
         uploaderVeryLarge.send(file, function (error, urlVeryLarge) {
           if (error) {
@@ -55,35 +55,41 @@ Template.fileUploader.events({
                                   if (error) {
                                     sAlert.error('Error uploading' + uploaderSmall.xhr.response);
                                   } else {
-                                    Resizer.resize(file, {height: microSize, width: microSize, cropSquare: false}, function(error, microImg) {
-                                      if (error) {
-                                        sAlert.error('Error uploading' + error);
-                                      } else {
-                                        uploaderMicro.send(microImg, function (error, urlMicro) {
-                                          if (error) {
-                                            sAlert.error('Error uploading' + uploaderMicro.xhr.response);
-                                          } else {
-                                            Photos.insert(
-                                              {
-                                                title: file.name,
-                                                urlVeryLarge: urlVeryLarge,
-                                                urlLarge: urlLarge,
-                                                urlMedium: urlMedium,
-                                                urlSmall: urlSmall,
-                                                urlMicro: urlMicro,
-                                                postId: template.data.postId
-                                              },
-                                              function (error, result) {
-                                                if (error) {
-                                                  sAlert.error('Error inserting' + error);
+                                    Resizer.resize(file, 
+                                      {height: microSize, 
+                                        width: microSize, 
+                                        cropSquare: false
+                                      },
+                                      function(error, microImg) {
+                                        if (error) {
+                                          sAlert.error('Error uploading' + error);
+                                        } else {
+                                          uploaderMicro.send(microImg, function (error, urlMicro) {
+                                            if (error) {
+                                              sAlert.error('Error uploading' + uploaderMicro.xhr.response);
+                                            } else {
+                                              Photos.insert(
+                                                {
+                                                  title: file.name,
+                                                  urlVeryLarge: urlVeryLarge,
+                                                  urlLarge: urlLarge,
+                                                  urlMedium: urlMedium,
+                                                  urlSmall: urlSmall,
+                                                  urlMicro: urlMicro,
+                                                  postId: template.data.postId
+                                                },
+                                                function (error, result) {
+                                                  if (error) {
+                                                    sAlert.error('Error inserting' + error);
+                                                  }
+                                                  console.log('result: ' + result);
                                                 }
-                                                console.log('result: ' + result);
-                                              }
-                                            );
-                                          }
-                                        });
+                                              );
+                                            }
+                                          });
+                                        }
                                       }
-                                    });
+                                    );
                                   }
                                 });
                               }
