@@ -1,124 +1,132 @@
 <template name="contact">
-	<!-- Head Section -->
-	<section class="small-section bg-dark-alfa-70">
-		<div class="relative container align-left">
-			<div class="row">
-				<div class="col-md-8">
-					<h1 class="hs-line-11 font-alt mb-20 mb-xs-0"> Contato </h1>
-				</div>
-				<div class="col-md-4 mt-30">
-					<ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
-						<li property="itemListElement" typeof="ListItem">
-							<a property="item" typeof="WebPage"	href="/">
-							<span property="name"> Home </span></a>
-							<meta property="position" content="1">
-						</li>
-						&nbsp;/&nbsp;
-						<li property="itemListElement" typeof="ListItem">
-							<a property="item" typeof="WebPage"	href="/contato">
-							<span property="name"> Contato </span></a>
-							<meta property="position" content="2">
-						</li>
-					</ol>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Head Section -->
+  <!-- Head Section -->
+  <section class="small-section bg-dark-alfa-70">
+    <div class="relative container align-left">
+      <div class="row">
+        <div class="col-md-8">
+          <h1 class="hs-line-11 font-alt mb-20 mb-xs-0"> Contato </h1>
+        </div>
+        <div class="col-md-4 mt-30">
+          <ol vocab="http://schema.org/" typeof="BreadcrumbList" class="mod-breadcrumbs font-alt align-right">
+            <li property="itemListElement" typeof="ListItem">
+              <a property="item" typeof="WebPage" href="/">
+              <span property="name"> Home </span></a>
+              <meta property="position" content="1">
+            </li>
+            &nbsp;/&nbsp;
+            <li property="itemListElement" typeof="ListItem">
+              <a property="item" typeof="WebPage" href="/contato">
+              <span property="name"> Contato </span></a>
+              <meta property="position" content="2">
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Head Section -->
 
-	<!-- Contact Section -->
-	<section class="page-section" id="contact">
-		<div class="container relative">
+  <!-- Contact Section -->
+  <section class="page-section" id="contact">
+    <div class="container relative">
 
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="section-text align-center mb-70 mb-xs-40">
-						<p> Para saber mais sobre meu trabalho ou solicitar orçamentos, mande uma mensagem. </p>
-						<p> Ficarei muito feliz em responder! :) </p>
-					</div>
-				</div>
-			</div>
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="section-text align-center mb-70 mb-xs-40">
+            <p> Para saber mais sobre meu trabalho ou solicitar orçamentos, mande uma mensagem. </p>
+            <p> Ficarei muito feliz em responder! :) </p>
+          </div>
+        </div>
+      </div>
 
-			<div class="row mb-60 mb-xs-40">
-				<div class="col-md-8 col-md-offset-2">
-					<div class="row">
-						<!-- Phone -->
-						<div class="col-sm-6 col-lg-6 pt-20 pb-20 pb-xs-0">
-							<div class="contact-item">
-								<div class="ci-icon">
-									<i class="fa fa-phone"></i>
-								</div>
-								<div class="ci-title font-alt"> Telefone </div>
-								<div class="ci-text"> 51 9676 0452 </div>
-							</div>
-						</div>
-						<!-- End Phone -->
-						<!-- Email -->
-						<div class="col-sm-6 col-lg-6 pt-20 pb-20 pb-xs-0">
-							<div class="contact-item">
-								<div class="ci-icon">
-									<i class="fa fa-envelope"></i>
-								</div>
-								<div class="ci-title font-alt"> Email </div>
-								<div class="ci-text">
-									<a href="mailto:contato@morganasecco.com.br">contato@morganasecco.com.br</a>
-								</div>
-							</div>
-						</div>
-						<!-- End Email -->
-					</div>
-				</div>
-			</div>
+      <div class="row mb-60 mb-xs-40">
+        <div class="col-md-8 col-md-offset-2">
+          <div class="row">
+            <!-- Phone -->
+            <div class="col-sm-6 col-lg-6 pt-20 pb-20 pb-xs-0">
+              <div class="contact-item">
+                <div class="ci-icon">
+                  <i class="fa fa-phone"></i>
+                </div>
+                <div class="ci-title font-alt"> Telefone </div>
+                <div class="ci-text"> 51 9676 0452 </div>
+              </div>
+            </div>
+            <!-- End Phone -->
+            <!-- Email -->
+            <div class="col-sm-6 col-lg-6 pt-20 pb-20 pb-xs-0">
+              <div class="contact-item">
+                <div class="ci-icon">
+                  <i class="fa fa-envelope"></i>
+                </div>
+                <div class="ci-title font-alt"> Email </div>
+                <div class="ci-text">
+                  <a href="mailto:contato@morganasecco.com.br">contato@morganasecco.com.br</a>
+                </div>
+              </div>
+            </div>
+            <!-- End Email -->
+          </div>
+        </div>
+      </div>
 
-			<!-- Contact Form -->
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+      <!-- Contact Form -->
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
 
-					{{#autoForm schema=contactFormSchema id="contact_form" class="form contact-form" type="method" meteormethod="sendEmail" }}
-					<div class="clearfix">
-						<div class="cf-left-col">
-							<!-- Name -->
-							<div class="form-group">
-								{{> afQuickField name="name" id="name" class="input-md round form-control" label=false}}
-							</div>
-							<!-- Email -->
-							<div class="form-group">
-								{{> afQuickField name="email" id="email" class="input-md round form-control" label=false}}
-							</div>
-						</div>
-						<div class="cf-right-col">
-							<!-- Message -->
-							<div class="form-group">
-								{{> afQuickField name="message" rows=10 id="message" class="input-md round form-control" style="height: 84px;" label=false}}
-							</div>
-						</div>
-					</div>
+          {{#autoForm schema=contactFormSchema id="contact_form" class="form contact-form" type="method" meteormethod="sendEmail" }}
+          <div class="clearfix">
+            <div class="cf-left-col">
+              <!-- Name -->
+              <div class="form-group">
+                {{> afQuickField name="name" id="name" class="input-md round form-control" label=false}}
+              </div>
+              <!-- Email -->
+              <div class="form-group">
+                {{> afQuickField name="email" id="email" class="input-md round form-control" label=false}}
+              </div>
+              <!-- Subject -->
+              <div class="form-group">
+                {{> afQuickField name="subject" id="subject" class="input-md round form-control" label=false}}
+              </div>
+              <!-- Phone -->
+              <div class="form-group">
+                {{> afQuickField name="phone" id="phone" class="input-md round form-control" label=false}}
+              </div>
+            </div>
+            <div class="cf-right-col">
+              <!-- Message -->
+              <div class="form-group">
+                {{> afQuickField name="message" rows=10 id="message" class="input-md round form-control" style="height: 178px;" label=false}}
+              </div>
+            </div>
+          </div>
 
-					<div class="clearfix">
-						<div class="cf-left-col">
-							<!-- Inform Tip -->
-							<div class="form-tip pt-20">
-								<i class="fa fa-info-circle"></i> Todos campos são necessários
-							</div>
-						</div>
-						<div class="cf-right-col">
-							<!-- Send Button -->
-							<div class="align-right pt-10">
-								<button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">
-									Enviar</button>
-							</div>
-						</div>
-					</div>
+          <div class="clearfix">
+            <div class="cf-left-col">
+              <!-- Inform Tip -->
+              <div class="form-tip pt-20">
+                <!-- <i class="fa fa-info-circle"></i> Todos campos são necessários -->
+              </div>
+            </div>
+            <div class="cf-right-col">
+              <!-- Send Button -->
+              <div class="align-right pt-10">
+                <button type="submit" class="submit_btn btn btn-mod btn-medium btn-round" id="submit_btn">
+                  Enviar</button>
+              </div>
+            </div>
+          </div>
 
-					<div id="result"></div>
+          <div id="result"></div>
 
-					{{/autoForm}}
+          {{/autoForm}}
 
-				</div>
-			</div>
-			<!-- End Contact Form -->
+        </div>
+      </div>
+      <!-- End Contact Form -->
 
-		</div>
-	</section>
-	<!-- End Contact Section -->
+    </div>
+  </section>
+  <!-- End Contact Section -->
 </template>
