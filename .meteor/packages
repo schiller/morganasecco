@@ -36,7 +36,6 @@ meteorhacks:fast-render
 meteorhacks:subs-manager
 meteorhacks:kadira
 edgee:slingshot
-thinksoftware:image-resize-client
 aldeed:collection2
 aldeed:autoform
 alanning:roles
@@ -50,3 +49,4 @@ juliancwirko:s-alert
 juliancwirko:s-alert-slide
 arillo:flow-router-helpers
 peerlibrary:aws-sdk
+thinksoftware:image-resize-client

@@ -25,7 +25,8 @@ Template.fileUploader.events({
         var largeSize = 1024;
         var mediumSize = 640;
         var smallSize = 320;
-        var microSize = 12.5;
+        var microSize = 12.5; //Avoids wrong 12/7 ratio
+        var minSize = 8;
 
         uploaderVeryLarge.send(file, function (error, urlVeryLarge) {
           if (error) {
@@ -56,9 +57,12 @@ Template.fileUploader.events({
                                     sAlert.error('Error uploading' + uploaderSmall.xhr.response);
                                   } else {
                                     Resizer.resize(file, 
-                                      {height: microSize, 
+                                      {
+                                        height: microSize, 
                                         width: microSize, 
-                                        cropSquare: false
+                                        cropSquare: false,
+                                        minWidth: minSize,
+                                        minHeight: minSize
                                       },
                                       function(error, microImg) {
                                         if (error) {
