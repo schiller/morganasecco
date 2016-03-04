@@ -1,4 +1,4 @@
-var pageLimit = 50;
+var pageLimit = 1000;
 
 incrementLimit = function(template, inc) {
   inc = typeof inc !== 'undefined' ? inc : pageLimit;
