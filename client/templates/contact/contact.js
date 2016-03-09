@@ -1,5 +1,5 @@
 Template.contact.onCreated(() => {
-  DocHead.setTitle('Contato | Fotografia Infantil, Gestante, Feminino | Porto Alegre, Lajeado | Morgana Secco Fotografia');
+  DocHead.setTitle('Contato | Morgana Secco Fotografia | Casamento | Porto Alegre | Infantil, Eventos');
 
   let description = {
     name: 'description',
@@ -14,7 +14,7 @@ Template.contact.onCreated(() => {
   var contactPage = {
     '@context': 'http://schema.org',
     '@type': 'ContactPage',
-    name: 'Morgana Secco Fotografia - Contato',
+    name: 'Contato - Morgana Secco Fotografia',
     url: 'http://morganasecco.com.br/contato'};
   DocHead.addLdJsonScript(contactPage);
 

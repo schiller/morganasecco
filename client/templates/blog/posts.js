@@ -30,7 +30,7 @@ Template.posts.onCreated(function() {
     });
   });
 
-  DocHead.setTitle('Galerias | Fotografia Infantil, Gestante, Feminino | Porto Alegre, Lajeado | Morgana Secco Fotografia');
+  DocHead.setTitle('Galerias | Morgana Secco Fotografia | Casamento | Porto Alegre | Infantil, Eventos');
 
   var ogTitle = {
     property: 'og:title',

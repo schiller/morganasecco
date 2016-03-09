@@ -1,5 +1,5 @@
 Template.about.onCreated(() => {
-  DocHead.setTitle('Sobre mim | Fotografia Infantil, Gestante, Feminino | Porto Alegre, Lajeado | Morgana Secco Fotografia');
+  DocHead.setTitle('Sobre mim | Morgana Secco Fotografia | Casamento | Porto Alegre | Infantil, Eventos');
 
   var metaInfo = {
     property: 'og:title',
@@ -9,7 +9,7 @@ Template.about.onCreated(() => {
   var richSnippet = {
     '@context': 'http://schema.org',
     '@type': 'AboutPage',
-    name: 'Morgana Secco Fotografia - Sobre Mim',
+    name: 'Sobre Mim - Morgana Secco Fotografia',
     url: 'http://morganasecco.com.br/sobre'};
   DocHead.addLdJsonScript(richSnippet);
 });
