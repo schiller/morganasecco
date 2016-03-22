@@ -7,7 +7,7 @@ Template.postShow.onCreated(function() {
       let photos = Photos.find({postId: post._id}).fetch();
 
       DocHead.setTitle(post.title +
-        ' | Morgana Secco Fotografia | Casamento | Porto Alegre | Infantil, Eventos');
+        ' | Fotografia Infantil, Gestante, Feminino | Porto Alegre, Lajeado | Morgana Secco Fotografia');
 
       var description = {
         name: 'description',
@@ -28,19 +28,6 @@ Template.postShow.onCreated(function() {
         property: 'og:type',
         content: 'article'};
       DocHead.addMeta(ogType);
-
-      photos.forEach((photo) => {
-        var ogImage = {
-          property: 'og:image',
-          content: photo.urlVeryLarge
-        };
-        var twitterImage = {
-          name: 'twitter:image',
-          property: photo.urlVeryLarge
-        };
-        DocHead.addMeta(ogImage);
-        DocHead.addMeta(twitterImage);
-      });
 
       let blogPosting = {
         '@context': 'http://schema.org',
